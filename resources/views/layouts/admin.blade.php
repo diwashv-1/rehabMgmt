@@ -16,6 +16,14 @@
     <link rel="stylesheet" href="https://unpkg.com/nepali-date-picker@2.0.0/dist/nepaliDatePicker.min.css"
           integrity="sha384-Fligaq3qH5qXDi+gnnhQctSqfMKJvH4U8DTA+XGemB/vv9AUHCwmlVR/B3Z4nE+q" crossorigin="anonymous">
     @yield('style')
+    <style>
+        nav ul li a p{
+            color: white;
+        }
+        nav ul li a p:hover{
+            color: #f4c901;
+        }
+    </style>
 
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -49,7 +57,7 @@
         </form>
 
         <!-- Right navbar links -->
-        <ul class="navbar-nav ml-auto">
+        {{--<ul class="navbar-nav ml-auto">
             <!-- Messages Dropdown Menu -->
             <li class="nav-item dropdown">
                 <a class="nav-link" data-toggle="dropdown" href="#">
@@ -60,7 +68,7 @@
                     <a href="#" class="dropdown-item">
                         <!-- Message Start -->
                         <div class="media">
-                            <img src="dist/img/user1-128x128.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle">
+                            <img src="" alt="User Avatar" class="img-size-50 mr-3 img-circle">
                             <div class="media-body">
                                 <h3 class="dropdown-item-title">
                                     Brad Diesel
@@ -76,7 +84,7 @@
                     <a href="#" class="dropdown-item">
                         <!-- Message Start -->
                         <div class="media">
-                            <img src="dist/img/user8-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
+                            <img src="" alt="User Avatar" class="img-size-50 img-circle mr-3">
                             <div class="media-body">
                                 <h3 class="dropdown-item-title">
                                     John Pierce
@@ -92,7 +100,7 @@
                     <a href="#" class="dropdown-item">
                         <!-- Message Start -->
                         <div class="media">
-                            <img src="dist/img/user3-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
+                            <img src="" alt="User Avatar" class="img-size-50 img-circle mr-3">
                             <div class="media-body">
                                 <h3 class="dropdown-item-title">
                                     Nora Silvester
@@ -140,18 +148,18 @@
                     <i class="fas fa-th-large"></i>
                 </a>
             </li>
-        </ul>
+        </ul>--}}
     </nav>
     <!-- /.navbar -->
 
     <!-- Main Sidebar Container -->
-    <aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <aside class="main-sidebar elevation-4 text-white" style="background-color: #0a1011">
         <!-- Brand Logo -->
         <a href="index3.html" class="brand-link">
-            <img src="logo" alt="" class="brand-image img-circle elevation-3"
+            <img src="" alt="" class="brand-image img-circle elevation-3"
                  style="opacity: .8">
-            <span class="brand-text font-weight-light">Sunaulo Bihani
-{{--            fetch from db later--}}
+            <span class="brand-text font-weight-bold text-warning">Sunaulo Bihani
+            {{--  fetch from db later--}}
             </span>
         </a>
         <!-- Sidebar -->
@@ -159,7 +167,7 @@
             <!-- Sidebar user panel (optional) -->
             <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                 <div class="image">
-                    <img src="./images/co2.jpg" class="img-circle elevation-2" alt="User Image">
+                    <img src="" class="img-circle elevation-2" alt="User Image">
                 </div>
                 <div class="info">
                     <a href="#" class="d-block">Soul Shadow</a>
@@ -180,7 +188,7 @@
                                 <i class="right fas fa-angle-left"></i>
                             </p>
                         </a>
-                        <ul class="nav nav-treeview">
+                        {{--<ul class="nav nav-treeview">
                             <li class="nav-item">
                                 <a href="./index.html" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
@@ -199,11 +207,109 @@
                                     <p>Dashboard v3</p>
                                 </a>
                             </li>
-
+                        </ul>--}}
+                    </li>
+                    {{--Client Manjuri Nama--}}
+                    <li class="nav-item">
+                        <a href="{{ route('clients.index')  }}" class="nav-link">
+                            <i class="nav-icon fas fa-file-alt"></i>
+                            <p>
+                                Client Manjurinama
+                            </p>
+                        </a>
+                    </li>
+                    {{--Clients--}}
+                    <li class="nav-item has-treeview">
+                        <a href="" class="nav-link">
+                            <i class="nav-icon fas fa-users"></i>
+                            <p>
+                                <i class="fas fa-angle-left right"></i>
+                                Clients
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="{{ route('registerclient.index') }}" class="nav-link">
+                                    <i class="fas fa-plus-circle"></i>
+                                    Register Clients
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ route('clientdetails.index') }}" class="nav-link">
+                                    <i class="fas fa-info-circle"></i>
+                                    Clients Information
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ route('clientexpenses.index') }}" class="nav-link">
+                                    <i class="fas fa-money-bill"></i>
+                                    Add Client Expenses
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ route('clientpayment.index') }}" class="nav-link">
+                                    <i class="fas fa-cash-register"></i>
+                                    Client payment
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="fas fa-check"></i>
+                                    Terminate Client
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    {{--Organizations--}}
+                    <li class="nav-item has-treeview">
+                        <a href="" class="nav-link">
+                            <i class="nav-icon fas fa-users"></i>
+                            <p>
+                                <i class="fas fa-angle-left right"></i>
+                                Organization Details
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="{{ route('organizationexpenses.index') }}" class="nav-link">
+                                    <i class="fas fa-money-bill"></i>
+                                    Add Organization Expenses
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ route('donatorpayment.index') }}" class="nav-link">
+                                    <i class="fas fa-money-bill"></i>
+                                    Add Donation Amount
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    {{--Setup--}}
+                    <li class="nav-item has-treeview">
+                        <a href="" class="nav-link">
+                            <i class="nav-icon fas fa-users"></i>
+                            <p>
+                                <i class="fas fa-angle-left right"></i>
+                                Admin Setup
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="{{ route('packagesetup.index') }}" class="nav-link">
+                                    <i class="fas fa-server"></i>
+                                    Setup Packages
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ route('expensessetup.index') }}" class="nav-link">
+                                    <i class="fas fa-server"></i>
+                                    Setup Expenses Details
+                                </a>
+                            </li>
                         </ul>
                     </li>
 
-                    <li class="nav-item has-treeview">
+                    {{--<li class="nav-item has-treeview">
                         <a href="" class="nav-link">
                             <i class="nav-icon fas fa-list"></i>
                             <p>
@@ -254,7 +360,7 @@
                         </ul>
 
 
-                    </li>
+                    </li>--}}
 
                     <li class="nav-item">
                         <a href="#" class="nav-link">
@@ -270,7 +376,7 @@
     </aside>
 
     <!-- Content Wrapper. Contains page content -->
-    <div class="content-wrapper">
+    <div class="content-wrapper" style="background-color: #ebecf1">
         <!-- Content Header (Page header) -->
     {{--    <div class="content-header">
             <div class="container-fluid">

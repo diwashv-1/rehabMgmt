@@ -14,7 +14,7 @@ class ClientPackageController extends Controller
      */
     public function index()
     {
-        //
+        return view('Client.registerclients');
     }
 
     /**

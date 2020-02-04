@@ -34,7 +34,20 @@ Route::group(['middleware' => 'auth'], function () {
         return view('test');
 
 
+
     });
+    Route::resource('/clients', 'ClientController');
+
+    Route::resource('/clientpayment', 'ClientPaymentController', ['only' => ['index']]);
+    Route::resource('/clientdetails', 'AjaxClientController', ['only' => ['index']]);
+    Route::resource('/registerclient', 'ClientPackageController', ['only' => ['index']]);
+    Route::resource('/clientexpenses', 'ClientExpenseController', ['only' => ['index']]);
+    /*Organization*/
+    Route::resource('/organizationexpenses', 'OrganizationExpenseController', ['only' => ['index']]);
+    Route::resource('/donatorpayment', 'DonationController', ['only' => ['index']]);
+    /*Setup*/
+    Route::resource('/packagesetup', 'PackageController', ['only' => ['index']]);
+    Route::resource('/expensessetup', 'ExpenseDetailController', ['only' => ['index']]);
 
 });
 

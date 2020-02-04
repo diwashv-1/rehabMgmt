@@ -14,7 +14,7 @@ class ClientPaymentController extends Controller
      */
     public function index()
     {
-        //
+        return view('Client.clientpayment');
     }
 
     /**

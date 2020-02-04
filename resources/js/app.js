@@ -8,19 +8,41 @@ require('./bootstrap');
 
 window.Vue = require('vue');
 
-/**
- * The following block of code may be used to automatically register your
- * Vue components. It will recursively scan this directory for the Vue
- * components and automatically register them with their "basename".
- *
- * Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
- */
 
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
+/*Vue Select*/
+import Vue from 'vue'
+import vSelect from 'vue-select'
+
+Vue.component('v-select', vSelect);
+import 'vue-select/dist/vue-select.css'
+
+import 'vue-search-select/dist/VueSearchSelect.css';
+/*-----*/
+
+/*Testing*/
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('test-component', require('./components/TestComponent.vue').default);
+/*Vue.component('demo-component', require('./components/DemoFormComponent.vue').default);*/
+
+/*Client*/
+Vue.component('client-component', require('./components/ClientFormComponent.vue').default);
+Vue.component('client-search', require('./components/Client/ClientSearch.vue').default);
+Vue.component('select-client-search', require('./components/Client/SelectClientSearch.vue').default);
+Vue.component('client-register', require('./components/Client/RegisterClient.vue').default);
+Vue.component('clients-payment', require('./components/Client/ClientPaymentForm.vue').default);
+Vue.component('client-expenses', require('./components/Client/ClientExpenses.vue').default);
+
+/*Organizatios*/
+Vue.component('organization-expenses', require('./components/Organization/OrganizationExpenses.vue').default);
+Vue.component('donator-payment', require('./components/Organization/DonatorForm.vue').default);
+
+/*Setup*/
+Vue.component('package-setup', require('./components/Setup/PackageSetup.vue').default);
+Vue.component('expenses-setup', require('./components/Setup/ExpensesSetup.vue').default);
+
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

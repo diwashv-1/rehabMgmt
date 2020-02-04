@@ -14,7 +14,7 @@ class OrganizationExpenseController extends Controller
      */
     public function index()
     {
-        //
+        return view('Organizations.organizationexpenses');
     }
 
     /**

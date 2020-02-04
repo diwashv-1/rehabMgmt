@@ -3,15 +3,17 @@
 
 @section('content')
     <div class="container">
-    <h1>This is Test. You are ready to go.Happy Coding.</h1>
+        <div id="app">
+            {{--<example-component></example-component>
+            <hr/>
+            <test-component></test-component>
+            <hr/>
+            <demo-component></demo-component>--}}
+
+
+        </div>
+
     </div>
-
-<div id="app">
-
-    <test-component></test-component>
-</div>
-
-
 
 
 @stop

@@ -14,7 +14,7 @@ class ExpenseDetailController extends Controller
      */
     public function index()
     {
-        //
+        return view('Setup.expensessetup');
     }
 
     /**
