@@ -2215,7 +2215,46 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: "RegisterClient"
+  name: "RegisterClient",
+  data: function data() {
+    return {
+      client: [],
+      "package": [],
+      clientSelect: '',
+      packageSelect: '',
+      packageError: true,
+      clientError: true
+    };
+  },
+  methods: {
+    register: function register() {
+      alert();
+    },
+
+    /*
+                CLEAR SELECT INPUT ERROR FIELD
+    */
+    checkError: function checkError(param) {
+      if (param === 'client') {
+        this.clientError = false;
+      } else if (param === 'package') {
+        this.packageError = false;
+      }
+    }
+  },
+  mounted: function mounted() {
+    var _this = this;
+
+    /*
+                        FETCH DATA FOR INPUT BOX
+    */
+    axios.get('api/fetchClient', {}).then(function (response) {
+      if (response.data.msg) {
+        _this.client = response.data.client;
+        _this["package"] = response.data["package"];
+      }
+    })["catch"](function (error) {});
+  }
 });
 
 /***/ }),
@@ -2293,8 +2332,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//
-//
 //
 //
 //
@@ -2760,6 +2797,15 @@ __webpack_require__.r(__webpack_exports__);
 
       this.errors = null;
       alert('Form ready to submit');
+      axios.post('api/clients', this.form).then(function (response) {
+        if (response.data.smsg) {
+          alert(msg);
+        }
+      })["catch"](function (error) {
+        if (error.response) {
+          console.log(error.response.data.message);
+        }
+      });
     }
   },
   mounted: function mounted() {
@@ -3167,9 +3213,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//
-//
-//
 //
 //
 //
@@ -7828,7 +7871,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/*.card-body {\n    padding: 25px 25px 20px 20px;\n    !*border-left: solid 50px #2e968f;*!\n    border-left: solid 50px #172526;\n\n}*/\nul[data-v-6813b173] {\n    text-align: center;\n    counter-reset: step;\n}\nul li[data-v-6813b173] {\n    display: inline-block;\n    list-style-type: none;\n    float: left;\n    width: 25%;\n    position: relative;\n    text-align: center;\n}\nul li[data-v-6813b173]:before {\n    content: counter(step);\n    counter-increment: step;\n    width: 30px;\n    height: 30px;\n    line-height: 30px;\n    border: solid 1px black;\n    display: block;\n    text-align: center;\n    margin: 0 auto 10px auto;\n    border-radius: 50%;\n    background-color: white;\n    /*z-index: 1;*/\n}\nul li[data-v-6813b173]:after {\n    content: '';\n    position: absolute;\n    width: 100%;\n    height: 1px;\n    background-color: black;\n    top: 15px;\n    right: 115px;\n    /*z-index: -1;*/\n}\nul li[data-v-6813b173]:first-child:after {\n    content: none;\n}\nul li.active[data-v-6813b173] {\n    color: green;\n}\nul li.active[data-v-6813b173]:before {\n    border-color: green !important;\n}\n\n/*.progressbar li.active + li:after {\n    background-color: green;\n}*/\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/*.card-body {\n    padding: 25px 25px 20px 20px;\n    !*border-left: solid 50px #2e968f;*!\n    border-left: solid 50px #172526;\n\n}*/\nul[data-v-6813b173] {\n    text-align: center;\n    counter-reset: step;\n}\nul li[data-v-6813b173] {\n    display: inline-block;\n    list-style-type: none;\n    float: left;\n    width: 25%;\n    position: relative;\n    text-align: center;\n}\nul li[data-v-6813b173]:before {\n    content: counter(step);\n    counter-increment: step;\n    width: 30px;\n    height: 30px;\n    line-height: 30px;\n    border: solid 1px black;\n    display: block;\n    text-align: center;\n    margin: 0 auto 10px auto;\n    border-radius: 50%;\n    background-color: white;\n    /*z-index: 1;*/\n}\nul li[data-v-6813b173]:after {\n    content: '';\n    position: absolute;\n    width: 100%;\n    height: 1px;\n    background-color: black;\n    top: 15px;\n    right: 115px;\n    /*z-index: -1;*/\n}\nul li[data-v-6813b173]:first-child:after {\n    content: none;\n}\nul li.active[data-v-6813b173] {\n    color: green;\n}\nul li.active[data-v-6813b173]:before {\n    border-color: green !important;\n}\n\n/*.progressbar li.active + li:after {\n    background-color: green;\n}*/\n\n", ""]);
 
 // exports
 
@@ -39696,82 +39739,143 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "container" }, [
-      _c("div", { staticClass: "card" }, [
-        _c("div", { staticClass: "card-body" }, [
-          _c("form", { attrs: { action: "" } }, [
-            _c("div", { staticClass: "form-group row" }, [
-              _c("label", { attrs: { for: "clientId" } }, [
-                _vm._v("Select Client")
-              ]),
-              _vm._v(" "),
-              _c(
-                "select",
-                {
-                  staticClass: "form-control",
-                  attrs: { name: "client_id", id: "clientId" }
-                },
-                [
-                  _c(
-                    "option",
-                    { attrs: { value: "", selected: "", disabled: "" } },
-                    [_vm._v("Select Clients")]
-                  ),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "" } }, [_vm._v("-01")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "" } }, [_vm._v("-02")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "" } }, [_vm._v("-03")])
-                ]
-              )
-            ]),
+  return _c("div", { staticClass: "container" }, [
+    _c("div", { staticClass: "card" }, [
+      _c("div", { staticClass: "card-body" }, [
+        _c("form", { attrs: { action: "" } }, [
+          _c("div", { staticClass: "form-group row" }, [
+            _c("label", [_vm._v("Select Client")]),
             _vm._v(" "),
-            _c("div", { staticClass: "form-group row" }, [
-              _c("label", { attrs: { for: "packageId" } }, [
-                _vm._v("Select Packages")
-              ]),
-              _vm._v(" "),
-              _c(
-                "select",
-                {
-                  staticClass: "form-control",
-                  attrs: { name: "package_id", id: "packageId" }
-                },
-                [
-                  _c(
-                    "option",
-                    { attrs: { value: "", selected: "", disabled: "" } },
-                    [_vm._v("Select Packages")]
-                  ),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "" } }, [_vm._v("-1")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "" } }, [_vm._v("-2")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "" } }, [_vm._v("-3")])
-                ]
-              )
+            _c(
+              "select",
+              {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.clientSelect,
+                    expression: "clientSelect"
+                  }
+                ],
+                staticClass: "form-control",
+                attrs: { name: "client_id" },
+                on: {
+                  change: [
+                    function($event) {
+                      var $$selectedVal = Array.prototype.filter
+                        .call($event.target.options, function(o) {
+                          return o.selected
+                        })
+                        .map(function(o) {
+                          var val = "_value" in o ? o._value : o.value
+                          return val
+                        })
+                      _vm.clientSelect = $event.target.multiple
+                        ? $$selectedVal
+                        : $$selectedVal[0]
+                    },
+                    function($event) {
+                      return _vm.checkError("client")
+                    }
+                  ]
+                }
+              },
+              [
+                _c("option", { attrs: { value: "", disabled: "" } }, [
+                  _vm._v("Select Client")
+                ]),
+                _vm._v(" "),
+                _vm._l(_vm.client, function(clients) {
+                  return _c("option", { domProps: { value: clients.id } }, [
+                    _vm._v(_vm._s(clients.client_name))
+                  ])
+                })
+              ],
+              2
+            ),
+            _vm._v(" "),
+            _vm.clientError
+              ? _c("span", { staticClass: "text-danger ml-3" }, [
+                  _vm._v("Client field is required *")
+                ])
+              : _vm._e()
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "form-group row" }, [
+            _c("label", { attrs: { for: "packageId" } }, [
+              _vm._v("Select Packages")
             ]),
             _vm._v(" "),
             _c(
-              "button",
-              { staticClass: "btn btn-success", attrs: { type: "submit" } },
-              [_vm._v("Register")]
-            )
-          ])
+              "select",
+              {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.packageSelect,
+                    expression: "packageSelect"
+                  }
+                ],
+                staticClass: "form-control",
+                attrs: { name: "package_id", id: "packageId" },
+                on: {
+                  change: [
+                    function($event) {
+                      var $$selectedVal = Array.prototype.filter
+                        .call($event.target.options, function(o) {
+                          return o.selected
+                        })
+                        .map(function(o) {
+                          var val = "_value" in o ? o._value : o.value
+                          return val
+                        })
+                      _vm.packageSelect = $event.target.multiple
+                        ? $$selectedVal
+                        : $$selectedVal[0]
+                    },
+                    function($event) {
+                      return _vm.checkError("package")
+                    }
+                  ]
+                }
+              },
+              [
+                _c("option", { attrs: { value: "", disabled: "" } }, [
+                  _vm._v("Select Packages")
+                ]),
+                _vm._v(" "),
+                _vm._l(_vm.package, function(packages) {
+                  return _c("option", { attrs: { value: "" } }, [
+                    _vm._v(_vm._s(packages.package_name))
+                  ])
+                })
+              ],
+              2
+            ),
+            _vm._v(" "),
+            _vm.packageError
+              ? _c("span", { staticClass: "text-danger ml-3" }, [
+                  _vm._v("Package field is required *")
+                ])
+              : _vm._e()
+          ]),
+          _vm._v(" "),
+          _c(
+            "button",
+            {
+              staticClass: "btn btn-success",
+              attrs: { type: "submit" },
+              on: { click: _vm.register }
+            },
+            [_vm._v("Register")]
+          )
         ])
       ])
     ])
-  }
-]
+  ])
+}
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -39832,11 +39936,11 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "container" }, [
+  return _c("div", { staticClass: "container-FLUID" }, [
     _c("div", { staticClass: "row" }, [
       _c("div", { staticClass: "progressbar col-md-12" }, [
         _c("ul", [
-          _vm.step <= _vm.totalSteps
+          _vm.step == 1
             ? _c("li", { staticClass: "active" }, [_vm._v(" Step 1")])
             : _vm._e(),
           _vm._v(" "),
@@ -39850,7 +39954,7 @@ var render = function() {
     ]),
     _vm._v(" "),
     _c("div", { staticClass: "row justify-content-center" }, [
-      _c("div", { staticClass: "col-md-10" }, [
+      _c("div", { staticClass: "col-md-12" }, [
         _c("form", [
           _c(
             "p",
@@ -40885,9 +40989,7 @@ var render = function() {
                   _c("section", [
                     _c("div", { staticClass: "form-row" }, [
                       _c("div", { staticClass: "form-group col-md-12" }, [
-                        _c("label", { attrs: { for: "case_history" } }, [
-                          _vm._v("Case History")
-                        ]),
+                        _c("label", [_vm._v("Case History")]),
                         _vm._v(" "),
                         _c("textarea", {
                           directives: [
@@ -60142,8 +60244,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! D:\xampp\htdocs\Laravel\rehabMgmt\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! D:\xampp\htdocs\Laravel\rehabMgmt\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! D:\xampp\htdocs\rehabMgmt\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! D:\xampp\htdocs\rehabMgmt\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

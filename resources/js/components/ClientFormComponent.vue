@@ -1,10 +1,10 @@
 <template>
-    <div class="container">
+    <div class="container-FLUID">
         <!--Steps-->
         <div class="row">
             <div class="progressbar col-md-12">
                 <ul>
-                    <li class="active" v-if="step<= totalSteps"> Step 1</li>
+                    <li class="active" v-if="step== 1"> Step 1</li>
                     <li v-if="step>1"> Step 2</li>
                     <li v-if="step>2"> Step 3</li>
                     <li v-if="step>3"> Step 4</li>
@@ -13,10 +13,9 @@
         </div>
         <!------->
         <div class="row justify-content-center">
-            <div class="col-md-10">
+            <div class="col-md-12">
                 <form>
                     <p class="text-danger"><span v-for="e in errors">{{ e }}</span></p>
-
 
                     <div class="card" v-if="step == 1">
                         <div class="card-body">
@@ -25,7 +24,6 @@
                                     <div class="form-group col-md-4">
                                         <label for="photo">Photo</label>
                                         <i class="fas fa-camera"></i>
-
                                         <input type="file" class="form-control-file" id="photo">
                                     </div>
                                     <div class="form-group col-md-4">
@@ -233,7 +231,7 @@
                             <section>
                                 <div class="form-row">
                                     <div class="form-group col-md-12">
-                                        <label for="case_history">Case History</label>
+                                        <label>Case History</label>
                                         <textarea class="form-control" rows="6" v-model="form.case_history"
                                                   name="case_history"
                                                   autocomplete="off"></textarea>
@@ -270,35 +268,24 @@
             return {
                 form: {
                     /*Step 1*/
-                    joined_date: null,
-                    client_id: null,
-                    client_name: null,
-                    client_gender: null,
-                    client_age: null,
-                    address: null,
-                    weight: null,
-                    temperature: null,
-                    blood_pressure: null,
-                    blood_group: null,
+                    joined_date: null, client_id: null, client_name: null,
+                    client_gender: null, client_age: null,
+                    address: null, weight: null,
+                    temperature: null, blood_pressure: null, blood_group: null,
+
                     /*--Step 2-*/
-                    guarantor_name1: null,
-                    guarantor_relation: null,
-                    father_name: null,
-                    mother_name: null,
-                    contact_number: null,
-                    contact_number2: null,
-                    guarantor_address: null,
+                    guarantor_name1: null, guarantor_relation: null, father_name: null,
+                    mother_name: null, contact_number: null,
+                    contact_number2: null, guarantor_address: null,
                     /*Step 3*/
-                    question1: null,
-                    question2: null,
-                    question3: null,
-                    question4: null,
-                    question5: null,
-                    question6: null,
-                    question7: null,
-                    question8: null,
-                    question9: null,
+
+                    question1: null, question2: null, question3: null, question4: null,
+                    question5: null, question6: null,
+                    question7: null, question8: null, question9: null,
+
                     /*Step 4*/
+
+
                     case_history: null,
                     advice: null
                 },
@@ -440,10 +427,18 @@
                     }
                 }
                 this.errors = null;
-                alert('Form ready to submit')
+                alert('Form ready to submit');
+
+                axios.post('api/clients', this.form).then(response => {
+                    if (response.data.smsg) {
+                        alert(msg);
+                    }
+                }).catch(error => {
+                    if (error.response) {
+                        console.log(error.response.data.message);
+                    }
+                });
             }
-
-
         },
 
         mounted() {

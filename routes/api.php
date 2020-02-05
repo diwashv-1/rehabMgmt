@@ -20,3 +20,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::get('fetchClient', 'AjaxClientController@fetchClient');
 
+/*
+                         CLIENTS
+*/
+Route::get('fetchClient', 'Client\FetchClientController@fetchClientPackage')->name('fetchClient');
+Route::resource('clients', 'Client\ClientController', ['only' => ['store']]);
