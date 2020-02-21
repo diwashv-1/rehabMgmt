@@ -13,17 +13,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="/css/app.css">
+    {{--<link type="text/css" rel="stylesheet" href="{{ mix('css/app.css') }}">--}}
     <link rel="stylesheet" href="https://unpkg.com/nepali-date-picker@2.0.0/dist/nepaliDatePicker.min.css"
           integrity="sha384-Fligaq3qH5qXDi+gnnhQctSqfMKJvH4U8DTA+XGemB/vv9AUHCwmlVR/B3Z4nE+q" crossorigin="anonymous">
     @yield('style')
-    <style>
-        nav ul li a p{
-            color: white;
-        }
-        nav ul li a p:hover{
-            color: #f4c901;
-        }
-    </style>
+
 
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -33,7 +27,7 @@
         <!-- Left navbar links -->
         <ul class="navbar-nav">
             <li class="nav-item">
-                <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>
+                <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas arrow"></i></a>
             </li>
             <li class="nav-item d-none d-sm-inline-block">
                 <a href="#" class="nav-link">Home</a>
@@ -158,7 +152,7 @@
         <a href="index3.html" class="brand-link">
             <img src="" alt="" class="brand-image img-circle elevation-3"
                  style="opacity: .8">
-            <span class="brand-text font-weight-bold text-warning">Sunaulo Bihani
+            <span class="brand-text font-weight-bold">Sunaulo Bihani
             {{--  fetch from db later--}}
             </span>
         </a>

@@ -3,6 +3,57 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
+                    <div class="card-header">Add Client Expenses</div>
+                    <div class="card-body">
+                        <form action="">
+                            <div class="form-row">
+                                <div class="form-group col-md-3">
+                                    <text-box-component labelName="Date"
+                                                        v-model="date"
+                                                        type="date"
+                                                        required="true"
+                                                        ref="date" />
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <select-option-component label-name="Client"
+                                                             v-model="client_id"
+                                                             :options="options"
+                                                             ref="client_id"
+                                                              />
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <select-option-component label-name="Expenses On"
+                                                             v-model="expense_detail_id"
+                                                             :options="options"
+                                                             ref="expense_detail_id"
+                                                              />
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <text-box-component labelName="Amount"
+                                                        v-model="paid_amount"
+                                                        placeholder="Enter Paid Amount"
+                                                        type="number"
+                                                        required="true"
+                                                        ref="paid_amount" />
+                                </div>
+                            </div>
+
+                        </form>
+                    </div>
+                    <div class="form-group d-flex justify-content-end ">
+                        <button class="btn btn-success mr-3" @click="submitBtn">Submit</button>
+                    </div>
+                    <p v-if="formSubmitted">
+                        Date: {{ date }}
+                        Amount: {{ paid_amount }}
+
+                    </p>
+                </div>
+            </div>
+        </div>
+<!--        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
                     <div class="card-header">
                         Add Client expenses
                     </div>
@@ -45,7 +96,7 @@
                                 <div class="form-group d-flex justify-content-end">
                                     <button class="btn btn-success">Submit</button>
                                 </div>
-                            
+
 
                         </form>
                     </div>
@@ -54,13 +105,52 @@
         </div>
         <div class="row">
 
-        </div>
+        </div>-->
+
     </div>
 </template>
 
 <script>
+    import TextBoxComponent from "../Components/TextBoxComponent";
+    import SelectOptionComponent from "../Components/SelectOptionComponent";
     export default {
-        name: "ClientExpenses"
+        name: "ClientExpenses",
+        components: {
+          TextBoxComponent,
+          SelectOptionComponent
+        },
+        data(){
+            return{
+                date: '',
+                paid_amount: '',
+                options:'',
+                client_id:'',
+                expense_detail_id: '',
+                formSubmitted: false
+            }
+        },
+        methods: {
+            submitBtn(){
+                this.formSubmitted = false;
+                this.$refs.date.validateForm();
+                if(this.$refs.date.errorMessage) {
+                    return;
+                }
+                this.$refs.paid_amount.validateForm();
+                if(this.$refs.paid_amount.errorMessage) {
+                    return;
+                }
+                this.$refs.client_id.validateForm();
+                if(this.$refs.client_id.errorMessage) {
+                    return;
+                }
+                this.$refs.expense_detail_id.validateForm();
+                if(this.$refs.expense_detail_id.errorMessage) {
+                    return;
+                }
+                this.formSubmitted = true
+            }
+        }
     }
 </script>
 

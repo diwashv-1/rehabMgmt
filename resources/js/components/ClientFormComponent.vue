@@ -1,5 +1,28 @@
 <template>
     <div class="container">
+
+        <div class="">
+            <h1>Show Test</h1>
+            <client-component-validate labelName="Client Id"
+                                        v-model="client_id1"
+                                       placeholder="Enter Client Id"
+                                        min-length="3"
+                                       required="true"
+                                        ref="client_id1"/>
+            <client-component-validate labelName="Password"
+                                        v-model="password"
+                                       type="password"
+                                       placeholder="Enter Password"
+                                        min-length="8"
+                                       required="true"
+                                        ref="password"/>
+            <button @click="handleSubmit">Submit</button>
+            <hr>
+            <p v-if="formSubmitted">
+                Client id: {{ client_id1 }} <br/>
+                Password: {{ password }}
+            </p>
+        </div>
         <!--Steps-->
         <div class="row">
             <div class="progressbar col-md-12">
@@ -263,11 +286,17 @@
 </template>
 
 <script>
+    import ClientFormValidate from "./ClientFormValidate";
     export default {
         name: 'app',
-
+        components: {
+          ClientFormValidate
+        },
         data: function () {
             return {
+                client_id1: '',
+                password: '',
+                formSubmitted: false,
                 form: {
                     /*Step 1*/
                     joined_date: null,
@@ -312,6 +341,20 @@
         },
 
         methods: {
+            handleSubmit() {
+                this.formSubmitted = false;
+                this.$refs.client_id1.validateForm();
+                if(this.$refs.client_id1.errorMessage){
+                    this.$refs.client_id1.focus();
+                    return;
+                }
+                this.$refs.password.validateForm();
+                if(this.$refs.password.errorMessage){
+                    this.$refs.password.focus();
+                    return;
+                }
+                this.formSubmitted = true;
+            },
             nextStep: function () {
                 if (this.step == 1) {
 

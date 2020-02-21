@@ -49,5 +49,6 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('/packagesetup', 'PackageController', ['only' => ['index']]);
     Route::resource('/expensessetup', 'ExpenseDetailController', ['only' => ['index']]);
 
+
 });
 
