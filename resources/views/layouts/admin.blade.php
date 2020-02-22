@@ -356,7 +356,7 @@
                     </li>--}}
 
                     <li class="nav-item">
-                        <a href="#" class="nav-link">
+                        <a href="/logout" class="nav-link">
                             <i class="fas fa-door-open "></i>
                             <p class="ml-3">logout</p>
                         </a>

@@ -12,11 +12,6 @@
 */
 
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-
 Route::get('/logout', function () {
     Auth::logout();
     return view('auth.login');
@@ -26,6 +21,10 @@ Route::get('/logout', function () {
 Auth::routes();
 
 Route::group(['middleware' => 'auth'], function () {
+
+    Route::get('/', function () {
+        return view('layouts.admin');
+    });
     Route::get('/home', 'HomeController@index')->name('home');
     Route::get('/test', function () {
         return view('test');
