@@ -9,7 +9,6 @@
                             <label for="Name">Name:</label>
                             <input type="text" v-model="form.name" class="form-control form-control-sm ">
                         </div>
-
                     </div>
 
                     <div v-if="step == 2">
@@ -17,7 +16,6 @@
                         <div class="col-md-12">
                             <label for="Name">Address:</label>
                             <input type="text" v-model="form.address" class="form-control form-control-sm ">
-
                         </div>
 
                         <div class="col-md-12">
@@ -37,7 +35,6 @@
                             <label for="Name">blood group:</label>
                             <input type="text" v-model="form.bloodGroup" class="form-control form-control-sm ">
                         </div>
-
 
                     </div>
                 </div>
@@ -74,7 +71,6 @@
             prevStep: function () {
                 this.step--
             }
-
         },
 
         mounted() {

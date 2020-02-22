@@ -289,13 +289,13 @@
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a href="{{ route('packagesetup.index') }}" class="nav-link">
+                                <a href="{{ route('PackageSetup.index') }}" class="nav-link">
                                     <i class="fas fa-server"></i>
                                     Setup Packages
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="{{ route('expensessetup.index') }}" class="nav-link">
+                                <a href="{{ route('ExpenseSetup.index') }}" class="nav-link">
                                     <i class="fas fa-server"></i>
                                     Setup Expenses Details
                                 </a>
@@ -357,7 +357,7 @@
                     </li>--}}
 
                     <li class="nav-item">
-                        <a href="#" class="nav-link">
+                        <a href="/logout" class="nav-link">
                             <i class="fas fa-door-open "></i>
                             <p class="ml-3">logout</p>
                         </a>

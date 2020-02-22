@@ -12,11 +12,6 @@
 */
 
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-
 Route::get('/logout', function () {
     Auth::logout();
     return view('auth.login');
@@ -27,27 +22,33 @@ Auth::routes();
 
 Route::group(['middleware' => 'auth'], function () {
 
-    Route::get('/home', 'HomeController@index')->name('home');
-
-    Route::get('/test', function () {
-
-        return view('test');
-
-
-
+    Route::get('/', function () {
+        return view('layouts.admin');
     });
-    Route::resource('/clients', 'ClientController');
+    Route::get('/home', 'HomeController@index')->name('home');
+    Route::get('/test', function () {
+        return view('test');
+    });
 
-    Route::resource('/clientpayment', 'ClientPaymentController', ['only' => ['index']]);
-    Route::resource('/clientdetails', 'AjaxClientController', ['only' => ['index']]);
-    Route::resource('/registerclient', 'ClientPackageController', ['only' => ['index']]);
-    Route::resource('/clientexpenses', 'ClientExpenseController', ['only' => ['index']]);
+    Route::resource('clients', 'Client\ClientController', ['only' => ['index']]);
+
+    Route::resource('clientpayment', 'ClientPaymentController', ['only' => ['index']]);
+    Route::resource('clientdetails', 'AjaxClientController', ['only' => ['index']]);
+    Route::resource('registerclient', 'ClientPackageController', ['only' => ['index']]);
+    Route::resource('clientexpenses', 'ClientExpenseController', ['only' => ['index']]);
+
     /*Organization*/
-    Route::resource('/organizationexpenses', 'OrganizationExpenseController', ['only' => ['index']]);
-    Route::resource('/donatorpayment', 'DonationController', ['only' => ['index']]);
+    Route::resource('organizationexpenses', 'Organaization\OrganizationExpenseController', ['only' => ['index']]);
+    Route::resource('donatorpayment', 'DonationController', ['only' => ['index']]);
+
+
     /*Setup*/
-    Route::resource('/packagesetup', 'PackageController', ['only' => ['index']]);
-    Route::resource('/expensessetup', 'ExpenseDetailController', ['only' => ['index']]);
+
+
+    Route::resource('PackageSetup', 'Package\PackageSetupController', ['only' => ['index']]);
+
+    Route::resource('ExpenseSetup', 'Expense\ExpenseSetupController', ['only' => ['index']]);
+
 
 
 });
