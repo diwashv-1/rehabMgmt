@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Expense;
 
-use App\Model\OrganizationExpense;
+use App\Http\Controllers\Controller;
+use App\Model\ExpenseDetail;
 use Illuminate\Http\Request;
 
-class OrganizationExpenseController extends Controller
+class ExpenseSetupController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +15,8 @@ class OrganizationExpenseController extends Controller
      */
     public function index()
     {
-        return view('Organizations.organizationexpenses');
+        return view('Setup.expensessetup');
+        //
     }
 
     /**
@@ -30,21 +32,34 @@ class OrganizationExpenseController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
+        $this->validate($request, [
+            'type' => 'required',
+        ]);
+
+
+        $expense = ExpenseDetail::create($request->all());
+
+        return response()->json([
+            'msg' => 'Successfully Added Expense Type',
+            'expense' => $expense,
+        ]);
+
+
         //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Model\OrganizationExpense  $organizationExpense
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function show(OrganizationExpense $organizationExpense)
+    public function show($id)
     {
         //
     }
@@ -52,10 +67,10 @@ class OrganizationExpenseController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Model\OrganizationExpense  $organizationExpense
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(OrganizationExpense $organizationExpense)
+    public function edit($id)
     {
         //
     }
@@ -63,11 +78,11 @@ class OrganizationExpenseController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Model\OrganizationExpense  $organizationExpense
+     * @param \Illuminate\Http\Request $request
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, OrganizationExpense $organizationExpense)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -75,10 +90,10 @@ class OrganizationExpenseController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Model\OrganizationExpense  $organizationExpense
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(OrganizationExpense $organizationExpense)
+    public function destroy($id)
     {
         //
     }

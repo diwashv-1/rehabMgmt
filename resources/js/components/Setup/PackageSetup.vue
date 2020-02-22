@@ -1,6 +1,6 @@
 <template>
-    <div id="container">
-        <div class="row">
+    <div id="">
+        <div class="">
             <div class="col-md-12 breadcrumb">
                 Add Packages
             </div>
@@ -18,37 +18,26 @@
                                 <form>
                                     <div class="form-row">
                                         <div class="form-group col-md-12">
-                                            <label for="packageName">Package Name</label>
-                                            <input type="text" class="form-control" id="packageName"
+                                            <label for="">Package Name</label>
+                                            <input type="text" class="form-control" v-model="package_name"
                                                    name="package_name">
                                             <p></p>
                                         </div>
                                         <div class="form-group col-md-12">
-                                            <label for="packageAmount">Package Price</label>
-                                            <input type="text" class="form-control" id="packageAmount"
+                                            <label for="">Package Price</label>
+                                            <input type="number" class="form-control" v-model="package_amount"
                                                    name="package_amount">
                                             <p></p>
                                         </div>
                                         <div class="form-group col-md-12">
-                                            <label for="selectPackageTime">Select Package Time Period</label>
-                                            <select name="package_time" id="selectPackageTime" class="form-control">
-                                                <option value="">15 days</option>
-                                                <option value="">1 month</option>
-                                                <option value="">2 month</option>
-                                                <option value="">3 month</option>
-                                                <option value="">4 month</option>
-                                                <option value="">5 month</option>
-                                                <option value="">6 month</option>
-                                                <option value="">7 month</option>
-                                                <option value="">8 month</option>
-                                                <option value="">9 month</option>
-                                                <option value="">10 month</option>
-                                                <option value="">11 month</option>
-                                                <option value="">1 year</option>
-                                            </select>
+                                            <label for=""> Package Time(month)</label>
+                                            <input type="number" class="form-control" v-model="package_time"
+                                                   name="package_time">
                                         </div>
                                         <div class="form-group">
-                                            <button class="btn btn-success">Add</button>
+                                            <button type="button" @click="submitPackageForm" class="btn btn-success">
+                                                Add
+                                            </button>
                                         </div>
                                     </div>
                                 </form>
@@ -69,33 +58,27 @@
                             <thead class="bg-info text-dark">
                             <tr>
                                 <th scope="col" width="10%">S.N.</th>
-                                <th scope="col" width="20%">Package Name</th>
+                                <th scope="col" width="30%">Package Name</th>
                                 <th scope="col" width="20%">Package Amount</th>
-                                <th scope="col" width="20%">Package Time Period</th>
-                                <th scope="col" width="30%">#</th>
+                                <th scope="col" width="20%">Time Period(month)</th>
+                                <th scope="col" width="20%">Action</th>
                             </tr>
                             </thead>
                             <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>3</td>
-                                <td>2</td>
-                                <td>4</td>
+                            <tr v-for="(packageDetail, index ) in packageDetail">
+                                <td>{{++index}}</td>
+                                <td class="text-center">{{packageDetail.package_name}}</td>
+                                <td class="text-center">{{packageDetail.package_amount}}</td>
+                                <td class="text-center">{{packageDetail.package_time}}</td>
                                 <td>
-                                    <button class="btn btn-info btn-sm">Edit</button>
-                                    <button class="btn btn-danger btn-sm">Remove</button>
+                                    <button class="btn btn-info btn-sm" @click="editPackage(packageDetail.id)">Edit
+                                    </button>
+                                    <button class="btn btn-danger btn-sm" @click="deletetPackage(packageDetail.id)">
+                                        Remove
+                                    </button>
                                 </td>
                             </tr>
-                            <tr>
-                                <td>6</td>
-                                <td>7</td>
-                                <td>8</td>
-                                <td>9</td>
-                                <td>
-                                    <button class="btn btn-info btn-sm">Edit</button>
-                                    <button class="btn btn-danger btn-sm">Remove</button>
-                                </td>
-                            </tr>
+
                             </tbody>
                         </table>
                     </div>
@@ -108,7 +91,53 @@
 
 <script>
     export default {
-        name: "PackageSetup"
+        name: "PackageSetup",
+        mounted() {
+            /************        GET PACKAGE DETAILS ***************/
+            axios.get('/api/packageDetail', {}).then(response => {
+                this.packageDetail = response.data.packageDetail;
+
+                console.log(this.packageDetail);
+            });
+        },
+
+        data: function () {
+            return {
+                packageDetail: [],
+                editPackage: '',
+                package_name: '',
+                package_time: '',
+                package_amount: '',
+            }
+        },
+
+        methods: {
+            submitPackageForm: function () {
+
+                //validate();
+                axios.post('api/PackageSetup   ', {
+                    package_name: this.package_name,
+                    package_time: this.package_time,
+                    package_amount: this.package_amount,
+                }).then(response => {
+                    alert(response.data.msg);
+
+                    if (response.data.msg) {
+                        this.package_name = '';
+                        this.package_amount = '';
+                        this.package_time = '';
+                        this.packageDetail.push(response.data.package);
+
+                    }
+
+                });
+
+
+            }
+
+        }
+
+
     }
 </script>
 

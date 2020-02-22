@@ -39,13 +39,17 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('clientexpenses', 'ClientExpenseController', ['only' => ['index']]);
 
     /*Organization*/
-    Route::resource('organizationexpenses', 'OrganizationExpenseController', ['only' => ['index']]);
+    Route::resource('organizationexpenses', 'Organaization\OrganizationExpenseController', ['only' => ['index']]);
     Route::resource('donatorpayment', 'DonationController', ['only' => ['index']]);
+
+
     /*Setup*/
 
 
-    Route::resource('packagesetup', 'PackageController', ['only' => ['index']]);
-    Route::resource('expensessetup', 'ExpenseDetailController', ['only' => ['index']]);
+    Route::resource('PackageSetup', 'Package\PackageSetupController', ['only' => ['index']]);
+
+    Route::resource('ExpenseSetup', 'Expense\ExpenseSetupController', ['only' => ['index']]);
+
 
 });
 

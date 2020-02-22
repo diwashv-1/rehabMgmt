@@ -19,13 +19,14 @@
                                     <div class="form-row">
                                         <div class="form-group col-md-12">
                                             <label for="packageName">Expense Type</label>
-                                            <input type="text" class="form-control" id="packageName"
+                                            <input type="text" v-model="type" class="form-control" id="packageName"
                                                    name="package_name">
                                             <p></p>
                                         </div>
                                     </div>
                                     <div class="form-group d-flex justify-content-end">
-                                        <button class="btn btn-success">Add</button>
+                                        <button type="button" @click="saveExpenseType" class="btn btn-success">Add
+                                        </button>
                                     </div>
                                 </form>
                             </div>
@@ -46,26 +47,22 @@
                             <tr>
                                 <th scope="col" width="15%">S.N.</th>
                                 <th scope="col" width="45%">Expenses Type</th>
-                                <th scope="col" width="40%">#</th>
+                                <th scope="col" width="40%">Action</th>
                             </tr>
                             </thead>
                             <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>3</td>
+                            <tr v-for="(expenseType, index) in expenseType">
+                                <td>{{++index}}</td>
+                                <td>{{expenseType.type}}</td>
                                 <td>
-                                    <button class="btn btn-info btn-sm">Edit</button>
-                                    <button class="btn btn-danger btn-sm">Remove</button>
+                                    <button @click="editExpenseType(expenseType.id)" class="btn btn-info btn-sm">Edit
+                                    </button>
+                                    <button @click="deleteExpenseType(expenseType.id) " class="btn btn-danger btn-sm">
+                                        Remove
+                                    </button>
                                 </td>
                             </tr>
-                            <tr>
-                                <td>6</td>
-                                <td>7</td>
-                                <td>
-                                    <button class="btn btn-info btn-sm">Edit</button>
-                                    <button class="btn btn-danger btn-sm">Remove</button>
-                                </td>
-                            </tr>
+
                             </tbody>
                         </table>
                     </div>
@@ -78,7 +75,36 @@
 
 <script>
     export default {
-        name: "ExpensesSetup"
+        name: "ExpensesSetup",
+        mounted() {
+            axios.get('/api/expenseDetail', {}).then(response => {
+                this.expenseType = response.data.expenseDetail;
+            });
+        },
+
+        data: function () {
+            return {
+                type: '',
+                expenseType: []
+            }
+        },
+
+
+        methods: {
+            saveExpenseType() {
+                axios.post('/api/ExpenseSetup', {
+                    type: this.type
+                }).then(response => {
+                    alert(response.data.msg);
+                    if (response.data.msg) {
+                        this.expenseType.push(response.data.expense)
+                    }
+
+                });
+            }
+        }
+
+
     }
 </script>
 

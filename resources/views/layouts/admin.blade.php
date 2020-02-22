@@ -16,14 +16,7 @@
     <link rel="stylesheet" href="https://unpkg.com/nepali-date-picker@2.0.0/dist/nepaliDatePicker.min.css"
           integrity="sha384-Fligaq3qH5qXDi+gnnhQctSqfMKJvH4U8DTA+XGemB/vv9AUHCwmlVR/B3Z4nE+q" crossorigin="anonymous">
     @yield('style')
-    <style>
-        nav ul li a p{
-            color: white;
-        }
-        nav ul li a p:hover{
-            color: #f4c901;
-        }
-    </style>
+
 
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -295,13 +288,13 @@
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a href="{{ route('packagesetup.index') }}" class="nav-link">
+                                <a href="{{ route('PackageSetup.index') }}" class="nav-link">
                                     <i class="fas fa-server"></i>
                                     Setup Packages
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="{{ route('expensessetup.index') }}" class="nav-link">
+                                <a href="{{ route('ExpenseSetup.index') }}" class="nav-link">
                                     <i class="fas fa-server"></i>
                                     Setup Expenses Details
                                 </a>
