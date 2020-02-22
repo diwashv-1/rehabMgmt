@@ -3228,6 +3228,59 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "ClientExpensesView"
 });
@@ -3321,6 +3374,54 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -4468,6 +4569,53 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "DonationFormView"
 });
@@ -4653,6 +4801,62 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "OrganizationExpensesView"
 });
@@ -4746,6 +4950,42 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "ExpensesSetup"
 });
@@ -4761,6 +5001,63 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -43280,7 +43577,23 @@ var staticRenderFns = [
             _vm._v(" "),
             _c("td", [_vm._v("...")]),
             _vm._v(" "),
-            _c("td", [_vm._v("...")])
+            _c("td", [
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-warning btn-sm",
+                  attrs: {
+                    "data-toggle": "modal",
+                    "data-target": "#editClientExpenses"
+                  }
+                },
+                [_vm._v("Edit")]
+              ),
+              _vm._v(" "),
+              _c("button", { staticClass: "btn btn-danger btn-sm" }, [
+                _vm._v("Remove")
+              ])
+            ])
           ]),
           _vm._v(" "),
           _c("tr", { staticClass: "active-row" }, [
@@ -43296,10 +43609,169 @@ var staticRenderFns = [
             _vm._v(" "),
             _c("td", [_vm._v("...")]),
             _vm._v(" "),
-            _c("td", [_vm._v("...")])
+            _c("td", [
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-warning btn-sm",
+                  attrs: {
+                    "data-toggle": "modal",
+                    "data-target": "#editClientExpenses"
+                  }
+                },
+                [_vm._v("Edit")]
+              ),
+              _vm._v(" "),
+              _c("button", { staticClass: "btn btn-danger btn-sm" }, [
+                _vm._v("Remove")
+              ])
+            ])
           ])
         ])
-      ])
+      ]),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          staticClass: "modal fade",
+          attrs: {
+            id: "editClientExpenses",
+            tabindex: "-1",
+            role: "dialog",
+            "aria-labelledby": "exampleModalLabel",
+            "aria-hidden": "true"
+          }
+        },
+        [
+          _c(
+            "div",
+            { staticClass: "modal-dialog", attrs: { role: "document" } },
+            [
+              _c("div", { staticClass: "modal-content" }, [
+                _c("div", { staticClass: "modal-header" }, [
+                  _c(
+                    "h5",
+                    {
+                      staticClass: "modal-title",
+                      attrs: { id: "exampleModalLabel" }
+                    },
+                    [_vm._v("Edit Client Expenses")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "button",
+                    {
+                      staticClass: "close",
+                      attrs: {
+                        type: "button",
+                        "data-dismiss": "modal",
+                        "aria-label": "Close"
+                      }
+                    },
+                    [
+                      _c("span", { attrs: { "aria-hidden": "true" } }, [
+                        _vm._v("×")
+                      ])
+                    ]
+                  )
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "modal-body" }, [
+                  _c("table", { staticClass: "table table-sm" }, [
+                    _c("thead", { staticClass: "bg-info text-dark" }, [
+                      _c("tr", [
+                        _c("th", { attrs: { scope: "col", width: "20%" } }, [
+                          _vm._v("Client")
+                        ]),
+                        _vm._v(" "),
+                        _c("th", { attrs: { scope: "col", width: "20%" } }, [
+                          _vm._v("Date")
+                        ]),
+                        _vm._v(" "),
+                        _c("th", { attrs: { scope: "col", width: "30%" } }, [
+                          _vm._v("Expenses On")
+                        ]),
+                        _vm._v(" "),
+                        _c("th", { attrs: { scope: "col", width: "30%" } }, [
+                          _vm._v("Amount")
+                        ])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("tbody", [
+                      _c("tr", [
+                        _c("td", [
+                          _c("input", {
+                            staticClass: "form-control",
+                            attrs: { type: "text", readonly: "" }
+                          })
+                        ]),
+                        _vm._v(" "),
+                        _c("td", [
+                          _c("input", {
+                            staticClass: "form-control",
+                            attrs: { type: "date" }
+                          })
+                        ]),
+                        _vm._v(" "),
+                        _c("td", [
+                          _c(
+                            "select",
+                            {
+                              staticClass: "form-control",
+                              attrs: { name: "expenses_on" }
+                            },
+                            [
+                              _c("option", { attrs: { value: "" } }, [
+                                _vm._v("Expenses 1")
+                              ]),
+                              _vm._v(" "),
+                              _c("option", { attrs: { value: "" } }, [
+                                _vm._v("Expenses 2")
+                              ]),
+                              _vm._v(" "),
+                              _c("option", { attrs: { value: "" } }, [
+                                _vm._v("Expenses 3")
+                              ])
+                            ]
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("td", [
+                          _c("input", {
+                            staticClass: "form-control",
+                            attrs: { type: "number" }
+                          })
+                        ])
+                      ])
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "modal-footer" }, [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-secondary",
+                      attrs: { type: "button", "data-dismiss": "modal" }
+                    },
+                    [_vm._v("Close")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-success",
+                      attrs: { type: "button" }
+                    },
+                    [_vm._v("Update")]
+                  )
+                ])
+              ])
+            ]
+          )
+        ]
+      )
     ])
   }
 ]
@@ -43497,7 +43969,23 @@ var staticRenderFns = [
             _vm._v(" "),
             _c("td", [_vm._v("...")]),
             _vm._v(" "),
-            _c("td", [_vm._v("...")])
+            _c("td", [
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-warning btn-sm",
+                  attrs: {
+                    "data-toggle": "modal",
+                    "data-target": "#editClientPayment"
+                  }
+                },
+                [_vm._v("Edit")]
+              ),
+              _vm._v(" "),
+              _c("button", { staticClass: "btn btn-danger btn-sm" }, [
+                _vm._v("Remove")
+              ])
+            ])
           ]),
           _vm._v(" "),
           _c("tr", { staticClass: "active-row" }, [
@@ -43511,10 +43999,148 @@ var staticRenderFns = [
             _vm._v(" "),
             _c("td", [_vm._v("...")]),
             _vm._v(" "),
-            _c("td", [_vm._v("...")])
+            _c("td", [
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-warning btn-sm",
+                  attrs: {
+                    "data-toggle": "modal",
+                    "data-target": "#editClientPayment"
+                  }
+                },
+                [_vm._v("Edit")]
+              ),
+              _vm._v(" "),
+              _c("button", { staticClass: "btn btn-danger btn-sm" }, [
+                _vm._v("Remove")
+              ])
+            ])
           ])
         ])
-      ])
+      ]),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          staticClass: "modal fade",
+          attrs: {
+            id: "editClientPayment",
+            tabindex: "-1",
+            role: "dialog",
+            "aria-labelledby": "exampleModalLabel",
+            "aria-hidden": "true"
+          }
+        },
+        [
+          _c(
+            "div",
+            { staticClass: "modal-dialog", attrs: { role: "document" } },
+            [
+              _c("div", { staticClass: "modal-content" }, [
+                _c("div", { staticClass: "modal-header" }, [
+                  _c(
+                    "h5",
+                    {
+                      staticClass: "modal-title",
+                      attrs: { id: "exampleModalLabel" }
+                    },
+                    [_vm._v("Edit Client Payment")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "button",
+                    {
+                      staticClass: "close",
+                      attrs: {
+                        type: "button",
+                        "data-dismiss": "modal",
+                        "aria-label": "Close"
+                      }
+                    },
+                    [
+                      _c("span", { attrs: { "aria-hidden": "true" } }, [
+                        _vm._v("×")
+                      ])
+                    ]
+                  )
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "modal-body" }, [
+                  _c("table", { staticClass: "table table-sm" }, [
+                    _c("thead", { staticClass: "bg-info text-dark" }, [
+                      _c("tr", [
+                        _c("th", { attrs: { scope: "col", width: "20%" } }, [
+                          _vm._v("Client")
+                        ]),
+                        _vm._v(" "),
+                        _c("th", { attrs: { scope: "col", width: "20%" } }, [
+                          _vm._v("Date")
+                        ]),
+                        _vm._v(" "),
+                        _c("th", { attrs: { scope: "col", width: "40%" } }, [
+                          _vm._v("Amount")
+                        ]),
+                        _vm._v(" "),
+                        _c("th", { attrs: { scope: "col", width: "20%" } }, [
+                          _vm._v("Narration")
+                        ])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("tbody", [
+                      _c("tr", [
+                        _c("td", [
+                          _c("input", {
+                            staticClass: "form-control",
+                            attrs: { type: "text", readonly: "" }
+                          })
+                        ]),
+                        _vm._v(" "),
+                        _c("td", [
+                          _c("input", {
+                            staticClass: "form-control",
+                            attrs: { type: "date" }
+                          })
+                        ]),
+                        _vm._v(" "),
+                        _c("td", [
+                          _c("input", {
+                            staticClass: "form-control",
+                            attrs: { type: "number" }
+                          })
+                        ]),
+                        _vm._v(" "),
+                        _c("td", [_c("textarea")])
+                      ])
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "modal-footer" }, [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-secondary",
+                      attrs: { type: "button", "data-dismiss": "modal" }
+                    },
+                    [_vm._v("Close")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-success",
+                      attrs: { type: "button" }
+                    },
+                    [_vm._v("Update")]
+                  )
+                ])
+              ])
+            ]
+          )
+        ]
+      )
     ])
   }
 ]
@@ -45312,15 +45938,13 @@ var staticRenderFns = [
           _c("tr", [
             _c("th", [_vm._v("S.N.")]),
             _vm._v(" "),
-            _c("th", [_vm._v("Clien Name")]),
+            _c("th", [_vm._v("Date")]),
             _vm._v(" "),
-            _c("th", [_vm._v("Client Expenses")]),
+            _c("th", [_vm._v("Donator Name")]),
             _vm._v(" "),
-            _c("th", [_vm._v("Payment Remaining")]),
+            _c("th", [_vm._v("Amount")]),
             _vm._v(" "),
-            _c("th", [_vm._v("Guarantor Name")]),
-            _vm._v(" "),
-            _c("th", [_vm._v("Contact Number")]),
+            _c("th", [_vm._v("Narration")]),
             _vm._v(" "),
             _c("th", [_vm._v("Action")])
           ])
@@ -45338,9 +45962,23 @@ var staticRenderFns = [
             _vm._v(" "),
             _c("td", [_vm._v("...")]),
             _vm._v(" "),
-            _c("td", [_vm._v("...")]),
-            _vm._v(" "),
-            _c("td", [_vm._v("...")])
+            _c("td", [
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-warning btn-sm",
+                  attrs: {
+                    "data-toggle": "modal",
+                    "data-target": "#editDonatorPayment"
+                  }
+                },
+                [_vm._v("Edit")]
+              ),
+              _vm._v(" "),
+              _c("button", { staticClass: "btn btn-danger btn-sm" }, [
+                _vm._v("Remove")
+              ])
+            ])
           ]),
           _vm._v(" "),
           _c("tr", { staticClass: "active-row" }, [
@@ -45354,12 +45992,163 @@ var staticRenderFns = [
             _vm._v(" "),
             _c("td", [_vm._v("...")]),
             _vm._v(" "),
-            _c("td", [_vm._v("...")]),
-            _vm._v(" "),
-            _c("td", [_vm._v("...")])
+            _c("td", [
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-warning btn-sm",
+                  attrs: {
+                    "data-toggle": "modal",
+                    "data-target": "#editDonatorPayment"
+                  }
+                },
+                [_vm._v("Edit")]
+              ),
+              _vm._v(" "),
+              _c("button", { staticClass: "btn btn-danger btn-sm" }, [
+                _vm._v("Remove")
+              ])
+            ])
           ])
         ])
-      ])
+      ]),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          staticClass: "modal fade",
+          attrs: {
+            id: "editDonatorPayment",
+            tabindex: "-1",
+            role: "dialog",
+            "aria-labelledby": "exampleModalLabel",
+            "aria-hidden": "true"
+          }
+        },
+        [
+          _c(
+            "div",
+            { staticClass: "modal-dialog", attrs: { role: "document" } },
+            [
+              _c("div", { staticClass: "modal-content" }, [
+                _c("div", { staticClass: "modal-header" }, [
+                  _c(
+                    "h5",
+                    {
+                      staticClass: "modal-title",
+                      attrs: { id: "exampleModalLabel" }
+                    },
+                    [_vm._v("Edit Donator Payment ")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "button",
+                    {
+                      staticClass: "close",
+                      attrs: {
+                        type: "button",
+                        "data-dismiss": "modal",
+                        "aria-label": "Close"
+                      }
+                    },
+                    [
+                      _c("span", { attrs: { "aria-hidden": "true" } }, [
+                        _vm._v("×")
+                      ])
+                    ]
+                  )
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "modal-body" }, [
+                  _c("table", { staticClass: "table table-sm" }, [
+                    _c("thead", { staticClass: "bg-info text-dark" }, [
+                      _c("tr", [
+                        _c(
+                          "th",
+                          {
+                            staticStyle: { width: "100px!important" },
+                            attrs: { scope: "col", width: "" }
+                          },
+                          [_vm._v("Date")]
+                        ),
+                        _vm._v(" "),
+                        _c("th", { attrs: { scope: "col", width: "35%" } }, [
+                          _vm._v("Donator Name")
+                        ]),
+                        _vm._v(" "),
+                        _c("th", { attrs: { scope: "col", width: "35%" } }, [
+                          _vm._v("Amount")
+                        ]),
+                        _vm._v(" "),
+                        _c(
+                          "th",
+                          {
+                            staticStyle: { width: "150px!important" },
+                            attrs: { scope: "col", width: "" }
+                          },
+                          [_vm._v("Narration")]
+                        )
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("tbody", [
+                      _c("tr", [
+                        _c("td", [
+                          _c("input", {
+                            staticClass: "form-control",
+                            staticStyle: { width: "100px!important" },
+                            attrs: { type: "date" }
+                          })
+                        ]),
+                        _vm._v(" "),
+                        _c("td", [
+                          _c("input", {
+                            staticClass: "form-control",
+                            attrs: { type: "text" }
+                          })
+                        ]),
+                        _vm._v(" "),
+                        _c("td", [
+                          _c("input", {
+                            staticClass: "form-control",
+                            attrs: { type: "number" }
+                          })
+                        ]),
+                        _vm._v(" "),
+                        _c("td", [
+                          _c("textarea", {
+                            staticStyle: { width: "150px!important" }
+                          })
+                        ])
+                      ])
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "modal-footer" }, [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-secondary",
+                      attrs: { type: "button", "data-dismiss": "modal" }
+                    },
+                    [_vm._v("Close")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-success",
+                      attrs: { type: "button" }
+                    },
+                    [_vm._v("Update")]
+                  )
+                ])
+              ])
+            ]
+          )
+        ]
+      )
     ])
   }
 ]
@@ -45678,7 +46467,23 @@ var staticRenderFns = [
             _vm._v(" "),
             _c("td", [_vm._v("...")]),
             _vm._v(" "),
-            _c("td", [_vm._v("...")])
+            _c("td", [
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-warning btn-sm",
+                  attrs: {
+                    "data-toggle": "modal",
+                    "data-target": "#editOrganizationExpenses"
+                  }
+                },
+                [_vm._v("Edit")]
+              ),
+              _vm._v(" "),
+              _c("button", { staticClass: "btn btn-danger btn-sm" }, [
+                _vm._v("Remove")
+              ])
+            ])
           ]),
           _vm._v(" "),
           _c("tr", { staticClass: "active-row" }, [
@@ -45690,10 +46495,179 @@ var staticRenderFns = [
             _vm._v(" "),
             _c("td", [_vm._v("...")]),
             _vm._v(" "),
-            _c("td", [_vm._v("...")])
+            _c("td", [
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-warning btn-sm",
+                  attrs: {
+                    "data-toggle": "modal",
+                    "data-target": "#editOrganizationExpenses"
+                  }
+                },
+                [_vm._v("Edit")]
+              ),
+              _vm._v(" "),
+              _c("button", { staticClass: "btn btn-danger btn-sm" }, [
+                _vm._v("Remove")
+              ])
+            ])
           ])
         ])
-      ])
+      ]),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          staticClass: "modal fade",
+          attrs: {
+            id: "editOrganizationExpenses",
+            tabindex: "-1",
+            role: "dialog",
+            "aria-labelledby": "exampleModalLabel",
+            "aria-hidden": "true"
+          }
+        },
+        [
+          _c(
+            "div",
+            { staticClass: "modal-dialog", attrs: { role: "document" } },
+            [
+              _c("div", { staticClass: "modal-content" }, [
+                _c("div", { staticClass: "modal-header" }, [
+                  _c(
+                    "h5",
+                    {
+                      staticClass: "modal-title",
+                      attrs: { id: "exampleModalLabel" }
+                    },
+                    [_vm._v("Edit Organization Expenses ")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "button",
+                    {
+                      staticClass: "close",
+                      attrs: {
+                        type: "button",
+                        "data-dismiss": "modal",
+                        "aria-label": "Close"
+                      }
+                    },
+                    [
+                      _c("span", { attrs: { "aria-hidden": "true" } }, [
+                        _vm._v("×")
+                      ])
+                    ]
+                  )
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "modal-body" }, [
+                  _c("table", { staticClass: "table table-sm" }, [
+                    _c("thead", { staticClass: "bg-info text-dark" }, [
+                      _c("tr", [
+                        _c(
+                          "th",
+                          {
+                            staticStyle: { width: "100px!important" },
+                            attrs: { scope: "col", width: "" }
+                          },
+                          [_vm._v("Date")]
+                        ),
+                        _vm._v(" "),
+                        _c("th", { attrs: { scope: "col", width: "35%" } }, [
+                          _vm._v("Expenses On")
+                        ]),
+                        _vm._v(" "),
+                        _c("th", { attrs: { scope: "col", width: "35%" } }, [
+                          _vm._v("Amount")
+                        ]),
+                        _vm._v(" "),
+                        _c(
+                          "th",
+                          {
+                            staticStyle: { width: "150px!important" },
+                            attrs: { scope: "col", width: "" }
+                          },
+                          [_vm._v("Narration")]
+                        )
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("tbody", [
+                      _c("tr", [
+                        _c("td", [
+                          _c("input", {
+                            staticClass: "form-control",
+                            staticStyle: { width: "100px!important" },
+                            attrs: { type: "date" }
+                          })
+                        ]),
+                        _vm._v(" "),
+                        _c("td", [
+                          _c(
+                            "select",
+                            {
+                              staticClass: "form-control",
+                              attrs: { name: "expenses_on" }
+                            },
+                            [
+                              _c("option", { attrs: { value: "" } }, [
+                                _vm._v("Expenses 1")
+                              ]),
+                              _vm._v(" "),
+                              _c("option", { attrs: { value: "" } }, [
+                                _vm._v("Expenses 2")
+                              ]),
+                              _vm._v(" "),
+                              _c("option", { attrs: { value: "" } }, [
+                                _vm._v("Expenses 3")
+                              ])
+                            ]
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("td", [
+                          _c("input", {
+                            staticClass: "form-control",
+                            attrs: { type: "number" }
+                          })
+                        ]),
+                        _vm._v(" "),
+                        _c("td", [
+                          _c("textarea", {
+                            staticStyle: { width: "150px!important" }
+                          })
+                        ])
+                      ])
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "modal-footer" }, [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-secondary",
+                      attrs: { type: "button", "data-dismiss": "modal" }
+                    },
+                    [_vm._v("Close")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-success",
+                      attrs: { type: "button" }
+                    },
+                    [_vm._v("Update")]
+                  )
+                ])
+              ])
+            ]
+          )
+        ]
+      )
     ])
   }
 ]
@@ -45814,9 +46788,17 @@ var staticRenderFns = [
                       _c("td", [_vm._v("3")]),
                       _vm._v(" "),
                       _c("td", [
-                        _c("button", { staticClass: "btn btn-info btn-sm" }, [
-                          _vm._v("Edit")
-                        ]),
+                        _c(
+                          "button",
+                          {
+                            staticClass: "btn btn-warning btn-sm",
+                            attrs: {
+                              "data-toggle": "modal",
+                              "data-target": "#editExpensesType"
+                            }
+                          },
+                          [_vm._v("Edit")]
+                        ),
                         _vm._v(" "),
                         _c("button", { staticClass: "btn btn-danger btn-sm" }, [
                           _vm._v("Remove")
@@ -45830,9 +46812,17 @@ var staticRenderFns = [
                       _c("td", [_vm._v("7")]),
                       _vm._v(" "),
                       _c("td", [
-                        _c("button", { staticClass: "btn btn-info btn-sm" }, [
-                          _vm._v("Edit")
-                        ]),
+                        _c(
+                          "button",
+                          {
+                            staticClass: "btn btn-warning btn-sm",
+                            attrs: {
+                              "data-toggle": "modal",
+                              "data-target": "#editExpensesType"
+                            }
+                          },
+                          [_vm._v("Edit")]
+                        ),
                         _vm._v(" "),
                         _c("button", { staticClass: "btn btn-danger btn-sm" }, [
                           _vm._v("Remove")
@@ -45845,7 +46835,101 @@ var staticRenderFns = [
             ])
           ])
         ])
-      ])
+      ]),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          staticClass: "modal fade",
+          attrs: {
+            id: "editExpensesType",
+            tabindex: "-1",
+            role: "dialog",
+            "aria-labelledby": "exampleModalLabel",
+            "aria-hidden": "true"
+          }
+        },
+        [
+          _c(
+            "div",
+            { staticClass: "modal-dialog", attrs: { role: "document" } },
+            [
+              _c("div", { staticClass: "modal-content" }, [
+                _c("div", { staticClass: "modal-header" }, [
+                  _c(
+                    "h5",
+                    {
+                      staticClass: "modal-title",
+                      attrs: { id: "exampleModalLabel" }
+                    },
+                    [_vm._v("Edit Expenses Type")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "button",
+                    {
+                      staticClass: "close",
+                      attrs: {
+                        type: "button",
+                        "data-dismiss": "modal",
+                        "aria-label": "Close"
+                      }
+                    },
+                    [
+                      _c("span", { attrs: { "aria-hidden": "true" } }, [
+                        _vm._v("×")
+                      ])
+                    ]
+                  )
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "modal-body" }, [
+                  _c("table", { staticClass: "table table-sm w-75 just" }, [
+                    _c("thead", { staticClass: "bg-info text-dark" }, [
+                      _c("tr", [
+                        _c("th", { attrs: { scope: "col", width: "" } }, [
+                          _vm._v(" Expenses Type ")
+                        ])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("tbody", [
+                      _c("tr", [
+                        _c("td", [
+                          _c("input", {
+                            staticClass: "form-control",
+                            attrs: { type: "text" }
+                          })
+                        ])
+                      ])
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "modal-footer" }, [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-secondary",
+                      attrs: { type: "button", "data-dismiss": "modal" }
+                    },
+                    [_vm._v("Close")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-success",
+                      attrs: { type: "button" }
+                    },
+                    [_vm._v("Update")]
+                  )
+                ])
+              ])
+            ]
+          )
+        ]
+      )
     ])
   }
 ]
@@ -46061,9 +47145,21 @@ var staticRenderFns = [
                       _c("td", [_vm._v("4")]),
                       _vm._v(" "),
                       _c("td", [
-                        _c("button", { staticClass: "btn btn-info btn-sm" }, [
-                          _vm._v("Edit")
-                        ]),
+                        _c(
+                          "button",
+                          {
+                            staticClass: "btn btn-warning btn-sm",
+                            attrs: {
+                              "data-toggle": "modal",
+                              "data-target": "#editPackages"
+                            }
+                          },
+                          [
+                            _vm._v(
+                              "\n                                    Edit\n                                "
+                            )
+                          ]
+                        ),
                         _vm._v(" "),
                         _c("button", { staticClass: "btn btn-danger btn-sm" }, [
                           _vm._v("Remove")
@@ -46081,9 +47177,17 @@ var staticRenderFns = [
                       _c("td", [_vm._v("9")]),
                       _vm._v(" "),
                       _c("td", [
-                        _c("button", { staticClass: "btn btn-info btn-sm" }, [
-                          _vm._v("Edit")
-                        ]),
+                        _c(
+                          "button",
+                          {
+                            staticClass: "btn btn-warning btn-sm",
+                            attrs: {
+                              "data-toggle": "modal",
+                              "data-target": "#editPackages"
+                            }
+                          },
+                          [_vm._v("Edit")]
+                        ),
                         _vm._v(" "),
                         _c("button", { staticClass: "btn btn-danger btn-sm" }, [
                           _vm._v("Remove")
@@ -46096,7 +47200,179 @@ var staticRenderFns = [
             ])
           ])
         ])
-      ])
+      ]),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          staticClass: "modal fade",
+          attrs: {
+            id: "editPackages",
+            tabindex: "-1",
+            role: "dialog",
+            "aria-labelledby": "exampleModalLabel",
+            "aria-hidden": "true"
+          }
+        },
+        [
+          _c(
+            "div",
+            { staticClass: "modal-dialog", attrs: { role: "document" } },
+            [
+              _c("div", { staticClass: "modal-content" }, [
+                _c("div", { staticClass: "modal-header" }, [
+                  _c(
+                    "h5",
+                    {
+                      staticClass: "modal-title",
+                      attrs: { id: "exampleModalLabel" }
+                    },
+                    [_vm._v("Edit Packages")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "button",
+                    {
+                      staticClass: "close",
+                      attrs: {
+                        type: "button",
+                        "data-dismiss": "modal",
+                        "aria-label": "Close"
+                      }
+                    },
+                    [
+                      _c("span", { attrs: { "aria-hidden": "true" } }, [
+                        _vm._v("×")
+                      ])
+                    ]
+                  )
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "modal-body" }, [
+                  _c("table", { staticClass: "table table-sm" }, [
+                    _c("thead", { staticClass: "bg-info text-dark" }, [
+                      _c("tr", [
+                        _c("th", { attrs: { scope: "col", width: "30%" } }, [
+                          _vm._v("Package Name")
+                        ]),
+                        _vm._v(" "),
+                        _c("th", { attrs: { scope: "col", width: "30%" } }, [
+                          _vm._v("Package Amount")
+                        ]),
+                        _vm._v(" "),
+                        _c("th", { attrs: { scope: "col", width: "30%" } }, [
+                          _vm._v("Package Time Period")
+                        ])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("tbody", [
+                      _c("tr", [
+                        _c("td", [
+                          _c("input", {
+                            staticClass: "form-control",
+                            attrs: { type: "text" }
+                          })
+                        ]),
+                        _vm._v(" "),
+                        _c("td", [
+                          _c("input", {
+                            staticClass: "form-control",
+                            attrs: { type: "number" }
+                          })
+                        ]),
+                        _vm._v(" "),
+                        _c("td", [
+                          _c(
+                            "select",
+                            {
+                              staticClass: "form-control",
+                              attrs: { name: "package_time" }
+                            },
+                            [
+                              _c("option", { attrs: { value: "" } }, [
+                                _vm._v("15 days")
+                              ]),
+                              _vm._v(" "),
+                              _c("option", { attrs: { value: "" } }, [
+                                _vm._v("1 month")
+                              ]),
+                              _vm._v(" "),
+                              _c("option", { attrs: { value: "" } }, [
+                                _vm._v("2 month")
+                              ]),
+                              _vm._v(" "),
+                              _c("option", { attrs: { value: "" } }, [
+                                _vm._v("3 month")
+                              ]),
+                              _vm._v(" "),
+                              _c("option", { attrs: { value: "" } }, [
+                                _vm._v("4 month")
+                              ]),
+                              _vm._v(" "),
+                              _c("option", { attrs: { value: "" } }, [
+                                _vm._v("5 month")
+                              ]),
+                              _vm._v(" "),
+                              _c("option", { attrs: { value: "" } }, [
+                                _vm._v("6 month")
+                              ]),
+                              _vm._v(" "),
+                              _c("option", { attrs: { value: "" } }, [
+                                _vm._v("7 month")
+                              ]),
+                              _vm._v(" "),
+                              _c("option", { attrs: { value: "" } }, [
+                                _vm._v("8 month")
+                              ]),
+                              _vm._v(" "),
+                              _c("option", { attrs: { value: "" } }, [
+                                _vm._v("9 month")
+                              ]),
+                              _vm._v(" "),
+                              _c("option", { attrs: { value: "" } }, [
+                                _vm._v("10 month")
+                              ]),
+                              _vm._v(" "),
+                              _c("option", { attrs: { value: "" } }, [
+                                _vm._v("11 month")
+                              ]),
+                              _vm._v(" "),
+                              _c("option", { attrs: { value: "" } }, [
+                                _vm._v("1 year")
+                              ])
+                            ]
+                          )
+                        ])
+                      ])
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "modal-footer" }, [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-secondary",
+                      attrs: { type: "button", "data-dismiss": "modal" }
+                    },
+                    [_vm._v("Close")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-success",
+                      attrs: { type: "button" }
+                    },
+                    [_vm._v("Update")]
+                  )
+                ])
+              ])
+            ]
+          )
+        ]
+      )
     ])
   }
 ]

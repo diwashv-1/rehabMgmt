@@ -21,7 +21,10 @@
                 <td>...</td>
                 <td>...</td>
                 <td>...</td>
-                <td>...</td>
+                <td>
+                    <button class="btn btn-warning btn-sm" data-toggle="modal" data-target="#editClientExpenses">Edit</button>
+                    <button class="btn btn-danger btn-sm">Remove</button>
+                </td>
             </tr>
             <tr class="active-row">
                 <td>2</td>
@@ -30,10 +33,60 @@
                 <td>...</td>
                 <td>...</td>
                 <td>...</td>
-                <td>...</td>
+                <td>
+                    <button class="btn btn-warning btn-sm" data-toggle="modal" data-target="#editClientExpenses">Edit</button>
+                    <button class="btn btn-danger btn-sm">Remove</button>
+                </td>
             </tr>
             </tbody>
         </table>
+
+        <!--Modal PopUp-->
+        <!-- Modal -->
+        <div class="modal fade" id="editClientExpenses" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+             aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Edit Client Expenses</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <table class="table table-sm">
+                            <thead class="bg-info text-dark">
+                            <tr>
+                                <th scope="col" width="20%">Client</th>
+                                <th scope="col" width="20%">Date</th>
+                                <th scope="col" width="30%">Expenses On</th>
+                                <th scope="col" width="30%">Amount</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td><input type="text" class="form-control" readonly/></td>
+                                <td><input type="date" class="form-control"/></td>
+                                <td>
+                                    <select name="expenses_on" class="form-control">
+                                        <option value="">Expenses 1</option>
+                                        <option value="">Expenses 2</option>
+                                        <option value="">Expenses 3</option>
+                                    </select>
+                                </td>
+                                <td><input type="number" class="form-control"/></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-success">Update</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
 </template>
 

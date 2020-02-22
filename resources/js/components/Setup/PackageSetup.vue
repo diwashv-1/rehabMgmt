@@ -82,7 +82,9 @@
                                 <td>2</td>
                                 <td>4</td>
                                 <td>
-                                    <button class="btn btn-info btn-sm">Edit</button>
+                                    <button class="btn btn-warning btn-sm" data-toggle="modal" data-target="#editPackages">
+                                        Edit
+                                    </button>
                                     <button class="btn btn-danger btn-sm">Remove</button>
                                 </td>
                             </tr>
@@ -92,7 +94,7 @@
                                 <td>8</td>
                                 <td>9</td>
                                 <td>
-                                    <button class="btn btn-info btn-sm">Edit</button>
+                                    <button class="btn btn-warning btn-sm" data-toggle="modal" data-target="#editPackages">Edit</button>
                                     <button class="btn btn-danger btn-sm">Remove</button>
                                 </td>
                             </tr>
@@ -103,6 +105,61 @@
                 </div>
             </div>
         </div>
+
+        <!--Modal PopUp-->
+        <!-- Modal -->
+        <div class="modal fade" id="editPackages" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+             aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Edit Packages</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <table class="table table-sm">
+                            <thead class="bg-info text-dark">
+                            <tr>
+                                <th scope="col" width="30%">Package Name</th>
+                                <th scope="col" width="30%">Package Amount</th>
+                                <th scope="col" width="30%">Package Time Period</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td><input type="text" class="form-control"/></td>
+                                <td><input type="number" class="form-control"/></td>
+                                <td>
+                                    <select name="package_time" class="form-control">
+                                        <option value="">15 days</option>
+                                        <option value="">1 month</option>
+                                        <option value="">2 month</option>
+                                        <option value="">3 month</option>
+                                        <option value="">4 month</option>
+                                        <option value="">5 month</option>
+                                        <option value="">6 month</option>
+                                        <option value="">7 month</option>
+                                        <option value="">8 month</option>
+                                        <option value="">9 month</option>
+                                        <option value="">10 month</option>
+                                        <option value="">11 month</option>
+                                        <option value="">1 year</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-success">Update</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
 </template>
 
