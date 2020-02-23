@@ -5,10 +5,9 @@
             <tr>
                 <th>S.N.</th>
                 <th>Clien Name</th>
-                <th>Client Expenses</th>
-                <th>Payment Remaining</th>
-                <th>Guarantor Name</th>
-                <th>Contact Number</th>
+                <th>Client Expenses Amount</th>
+                <th>Total Paid Amount</th>
+                <th>Remaining Amount</th>
                 <th>Action</th>
             </tr>
             </thead>
@@ -20,9 +19,8 @@
                 <td>...</td>
                 <td>...</td>
                 <td>...</td>
-                <td>...</td>
                 <td>
-                    <button class="btn btn-warning btn-sm" data-toggle="modal" data-target="#editClientExpenses">Edit</button>
+                    <button class="btn btn-warning btn-sm" data-toggle="modal" data-target="#editClientPayment">Edit</button>
                     <button class="btn btn-danger btn-sm">Remove</button>
                 </td>
             </tr>
@@ -32,9 +30,8 @@
                 <td>...</td>
                 <td>...</td>
                 <td>...</td>
-                <td>...</td>
                 <td>
-                    <button class="btn btn-warning btn-sm" data-toggle="modal" data-target="#editClientExpenses">Edit</button>
+                    <button class="btn btn-warning btn-sm" data-toggle="modal" data-target="#editClientPayment">Edit</button>
                     <button class="btn btn-danger btn-sm">Remove</button>
                 </td>
             </tr>
@@ -43,12 +40,12 @@
 
         <!--Modal PopUp-->
         <!-- Modal -->
-        <div class="modal fade" id="editClientExpenses" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        <div class="modal fade" id="editClientPayment" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
              aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Edit Client Expenses</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Edit Client Payment</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -59,22 +56,16 @@
                             <tr>
                                 <th scope="col" width="20%">Client</th>
                                 <th scope="col" width="20%">Date</th>
-                                <th scope="col" width="30%">Expenses On</th>
-                                <th scope="col" width="30%">Amount</th>
+                                <th scope="col" width="40%">Amount</th>
+                                <th scope="col" width="20%">Narration</th>
                             </tr>
                             </thead>
                             <tbody>
                             <tr>
                                 <td><input type="text" class="form-control" readonly/></td>
                                 <td><input type="date" class="form-control"/></td>
-                                <td>
-                                    <select name="expenses_on" class="form-control">
-                                        <option value="">Expenses 1</option>
-                                        <option value="">Expenses 2</option>
-                                        <option value="">Expenses 3</option>
-                                    </select>
-                                </td>
                                 <td><input type="number" class="form-control"/></td>
+                                <td> <textarea></textarea> </td>
                             </tr>
                             </tbody>
                         </table>
@@ -87,12 +78,13 @@
             </div>
         </div>
 
+
     </div>
 </template>
 
 <script>
     export default {
-        name: "ClientExpensesView"
+        name: "ClientPaymentView"
     }
 </script>
 

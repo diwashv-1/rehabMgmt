@@ -50,5 +50,6 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('ExpenseSetup', 'Expense\ExpenseSetupController', ['only' => ['index']]);
 
 
+
 });
 

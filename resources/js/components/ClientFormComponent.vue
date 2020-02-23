@@ -1,10 +1,33 @@
 <template>
-    <div class="container-FLUID">
+    <div class="container">
+
+        <div class="">
+            <h1>Show Test</h1>
+            <client-component-validate labelName="Client Id"
+                                        v-model="client_id1"
+                                       placeholder="Enter Client Id"
+                                        min-length="3"
+                                       required="true"
+                                        ref="client_id1"/>
+            <client-component-validate labelName="Password"
+                                        v-model="password"
+                                       type="password"
+                                       placeholder="Enter Password"
+                                        min-length="8"
+                                       required="true"
+                                        ref="password"/>
+            <button @click="handleSubmit">Submit</button>
+            <hr>
+            <p v-if="formSubmitted">
+                Client id: {{ client_id1 }} <br/>
+                Password: {{ password }}
+            </p>
+        </div>
         <!--Steps-->
         <div class="row">
             <div class="progressbar col-md-12">
                 <ul>
-                    <li class="active" v-if="step== 1"> Step 1</li>
+                    <li class="active" v-if="step<= totalSteps"> Step 1</li>
                     <li v-if="step>1"> Step 2</li>
                     <li v-if="step>2"> Step 3</li>
                     <li v-if="step>3"> Step 4</li>
@@ -13,9 +36,10 @@
         </div>
         <!------->
         <div class="row justify-content-center">
-            <div class="col-md-12">
+            <div class="col-md-10">
                 <form>
                     <p class="text-danger"><span v-for="e in errors">{{ e }}</span></p>
+
 
                     <div class="card" v-if="step == 1">
                         <div class="card-body">
@@ -24,6 +48,7 @@
                                     <div class="form-group col-md-4">
                                         <label for="photo">Photo</label>
                                         <i class="fas fa-camera"></i>
+
                                         <input type="file" class="form-control-file" id="photo">
                                     </div>
                                     <div class="form-group col-md-4">
@@ -231,7 +256,7 @@
                             <section>
                                 <div class="form-row">
                                     <div class="form-group col-md-12">
-                                        <label>Case History</label>
+                                        <label for="case_history">Case History</label>
                                         <textarea class="form-control" rows="6" v-model="form.case_history"
                                                   name="case_history"
                                                   autocomplete="off"></textarea>
@@ -261,31 +286,48 @@
 </template>
 
 <script>
+    import ClientFormValidate from "./ClientFormValidate";
     export default {
         name: 'app',
-
+        components: {
+          ClientFormValidate
+        },
         data: function () {
             return {
+                client_id1: '',
+                password: '',
+                formSubmitted: false,
                 form: {
                     /*Step 1*/
-                    joined_date: null, client_id: null, client_name: null,
-                    client_gender: null, client_age: null,
-                    address: null, weight: null,
-                    temperature: null, blood_pressure: null, blood_group: null,
-
+                    joined_date: null,
+                    client_id: null,
+                    client_name: null,
+                    client_gender: null,
+                    client_age: null,
+                    address: null,
+                    weight: null,
+                    temperature: null,
+                    blood_pressure: null,
+                    blood_group: null,
                     /*--Step 2-*/
-                    guarantor_name1: null, guarantor_relation: null, father_name: null,
-                    mother_name: null, contact_number: null,
-                    contact_number2: null, guarantor_address: null,
+                    guarantor_name1: null,
+                    guarantor_relation: null,
+                    father_name: null,
+                    mother_name: null,
+                    contact_number: null,
+                    contact_number2: null,
+                    guarantor_address: null,
                     /*Step 3*/
-
-                    question1: null, question2: null, question3: null, question4: null,
-                    question5: null, question6: null,
-                    question7: null, question8: null, question9: null,
-
+                    question1: null,
+                    question2: null,
+                    question3: null,
+                    question4: null,
+                    question5: null,
+                    question6: null,
+                    question7: null,
+                    question8: null,
+                    question9: null,
                     /*Step 4*/
-
-
                     case_history: null,
                     advice: null
                 },
@@ -299,6 +341,20 @@
         },
 
         methods: {
+            handleSubmit() {
+                this.formSubmitted = false;
+                this.$refs.client_id1.validateForm();
+                if(this.$refs.client_id1.errorMessage){
+                    this.$refs.client_id1.focus();
+                    return;
+                }
+                this.$refs.password.validateForm();
+                if(this.$refs.password.errorMessage){
+                    this.$refs.password.focus();
+                    return;
+                }
+                this.formSubmitted = true;
+            },
             nextStep: function () {
                 if (this.step == 1) {
 
@@ -427,18 +483,10 @@
                     }
                 }
                 this.errors = null;
-                alert('Form ready to submit');
-
-                axios.post('api/clients', this.form).then(response => {
-                    if (response.data.smsg) {
-                        alert(msg);
-                    }
-                }).catch(error => {
-                    if (error.response) {
-                        console.log(error.response.data.message);
-                    }
-                });
+                alert('Form ready to submit')
             }
+
+
         },
 
         mounted() {

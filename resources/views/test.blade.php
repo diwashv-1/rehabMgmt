@@ -9,8 +9,7 @@
             <test-component></test-component>
             <hr/>
             <demo-component></demo-component>--}}
-
-
+            <client-component></client-component>
         </div>
 
     </div>
