@@ -27,7 +27,7 @@
         <!-- Left navbar links -->
         <ul class="navbar-nav">
             <li class="nav-item">
-                <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas arrow"></i></a>
+                <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-sliders-h"></i></a>
             </li>
             <li class="nav-item d-none d-sm-inline-block">
                 <a href="#" class="nav-link">Home</a>
@@ -147,7 +147,7 @@
     <!-- /.navbar -->
 
     <!-- Main Sidebar Container -->
-    <aside class="main-sidebar elevation-4 text-white" style="background-color: #0a1011">
+    <aside class="main-sidebar elevation-4 sidebar-dark-primary">
         <!-- Brand Logo -->
         <a href="index3.html" class="brand-link">
             <img src="" alt="" class="brand-image img-circle elevation-3"
