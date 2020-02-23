@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Client;
 
-use App\Model\ClientPayment;
+use App\Http\Controllers\Controller;
+use App\Model\ClientPackage;
 use Illuminate\Http\Request;
 
-class ClientPaymentController extends Controller
+class ClientPackageController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +15,8 @@ class ClientPaymentController extends Controller
      */
     public function index()
     {
-        return view('Client.clientpayment');
+        return view('Client.registerclients');
+        //
     }
 
     /**
@@ -30,21 +32,39 @@ class ClientPaymentController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
+
+        $this->validate($request, [
+            'client_id' => 'required',
+            'package_id' => 'required'
+        ]);
+
+
+        ClientPackage::create([
+            'user_id' => 1,
+            'client_id' => $request->client_id,
+            'package_id' => $request->package_id,
+        ]);
+
+        return response()->json([
+            'msg' => 'Succesfully registerd client Package'
+        ]);
+
+
         //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Model\ClientPayment  $clientPayment
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function show(ClientPayment $clientPayment)
+    public function show($id)
     {
         //
     }
@@ -52,10 +72,10 @@ class ClientPaymentController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Model\ClientPayment  $clientPayment
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(ClientPayment $clientPayment)
+    public function edit($id)
     {
         //
     }
@@ -63,11 +83,11 @@ class ClientPaymentController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Model\ClientPayment  $clientPayment
+     * @param \Illuminate\Http\Request $request
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, ClientPayment $clientPayment)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -75,10 +95,10 @@ class ClientPaymentController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Model\ClientPayment  $clientPayment
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(ClientPayment $clientPayment)
+    public function destroy($id)
     {
         //
     }

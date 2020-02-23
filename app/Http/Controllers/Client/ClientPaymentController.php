@@ -1,12 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Client;
 
-use App\Model\Client_Package;
-use App\Model\ClientPackage;
+use App\Http\Controllers\Controller;
+use App\Model\ClientPayment;
 use Illuminate\Http\Request;
+use Illuminate\Validation\ValidationException;
 
-class ClientPackageController extends Controller
+class ClientPaymentController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +16,9 @@ class ClientPackageController extends Controller
      */
     public function index()
     {
-        return view('Client.registerclients');
+        return view('Client.clientpayment');
+
+        //
     }
 
     /**
@@ -36,7 +39,26 @@ class ClientPackageController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request->all());
+        try {
+            $validator = $this->validate($request, [
+                'client_id' => 'required',
+                'paid_amount' => 'required',
+                'date' => 'required',
+            ]);
+        } catch (ValidationException $exception) {
+            return response()->json([
+                'errors' => $exception->errors(),
+            ]);
+        }
+
+        ClientPayment::create([
+            'client_id' => $request->client_id,
+            'paid_amount' => $request->paid_amount,
+            'date' => $request->date,
+            'narration' => $request->narration,
+            'user_id' => 1,
+        ]);
+
 
         //
     }
@@ -44,10 +66,10 @@ class ClientPackageController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param \App\Model\Client_Package $client_Package
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Client_Package $client_Package)
+    public function show($id)
     {
         //
     }
@@ -55,10 +77,10 @@ class ClientPackageController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param \App\Model\Client_Package $client_Package
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Client_Package $client_Package)
+    public function edit($id)
     {
         //
     }
@@ -67,10 +89,10 @@ class ClientPackageController extends Controller
      * Update the specified resource in storage.
      *
      * @param \Illuminate\Http\Request $request
-     * @param \App\Model\Client_Package $client_Package
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Client_Package $client_Package)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -78,10 +100,10 @@ class ClientPackageController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param \App\Model\Client_Package $client_Package
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Client_Package $client_Package)
+    public function destroy($id)
     {
         //
     }

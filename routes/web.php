@@ -32,10 +32,10 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::resource('clients', 'Client\ClientController', ['only' => ['index']]);
 
-    Route::resource('clientpayment', 'ClientPaymentController', ['only' => ['index']]);
+    Route::resource('clientpayment', 'Client\ClientPaymentController', ['only' => ['index']]);
     Route::resource('clientdetails', 'AjaxClientController', ['only' => ['index']]);
-    Route::resource('registerclient', 'ClientPackageController', ['only' => ['index']]);
-    Route::resource('clientexpenses', 'ClientExpenseController', ['only' => ['index']]);
+    Route::resource('clientPackage', 'Client\ClientPackageController', ['only' => ['index']]);
+    Route::resource('clientexpense', 'Expense\ClientExpenseController', ['only' => ['index']]);
 
     /*Organization*/
     Route::resource('organizationexpenses', 'Organaization\OrganizationExpenseController', ['only' => ['index']]);

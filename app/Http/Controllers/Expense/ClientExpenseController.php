@@ -1,8 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Expense;
 
+use App\ClientExpense;
+use App\Http\Controllers\Controller;
+use Dotenv\Exception\ValidationException;
 use Illuminate\Http\Request;
+use PHPUnit\Exception;
 
 class ClientExpenseController extends Controller
 {
@@ -14,6 +18,8 @@ class ClientExpenseController extends Controller
     public function index()
     {
         return view('Client.clientexpenses');
+
+        //
     }
 
     /**
@@ -29,18 +35,45 @@ class ClientExpenseController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
-        //
+        try {
+
+            $validator = $this->validate($request, [
+                'paid_amount' => 'required',
+                'client_id' => 'required',
+                'expense_detail_id' => 'required',
+                'date' => 'required',
+            ]);
+        } catch (\Illuminate\Validation\ValidationException $exception) {
+            return response()->json([
+                'errors' => $exception->errors(),
+            ]);
+
+
+        }
+        ClientExpense::create([
+            'client_id' => $request->client_id,
+            'expense_detail_id' => $request->expense_detail_id,
+            'paid_amount' => $request->paid_amount,
+            'user_id' => 1,
+        ]);
+
+
+        return response()->json([
+            'msg' => 'Succesfully Added Client Expenses'
+        ]);
+
+
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -51,7 +84,7 @@ class ClientExpenseController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -62,8 +95,8 @@ class ClientExpenseController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param \Illuminate\Http\Request $request
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -74,7 +107,7 @@ class ClientExpenseController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)

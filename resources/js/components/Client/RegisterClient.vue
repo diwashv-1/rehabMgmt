@@ -17,11 +17,11 @@
                         <select v-model="packageSelect" name="package_id" id="packageId" @change="checkError('package')"
                                 class="form-control">
                             <option value="" disabled>Select Packages</option>
-                            <option v-for="packages in package" value="">{{packages.package_name}}</option>
+                            <option v-for="packages in package" :value="packages.id">{{packages.package_name}}</option>
                         </select>
                         <span v-if="packageError" class="text-danger ml-3">Package field is required *</span>
                     </div>
-                    <button type="submit" class="btn btn-success" @click="register">Register</button>
+                    <button type="button" class="btn btn-success" @click="register">Register</button>
                 </form>
             </div>
         </div>
@@ -40,15 +40,24 @@
                 packageSelect: '',
                 packageError: true,
                 clientError: true,
-
             }
         },
 
         methods: {
             register: function () {
-                alert();
-            },
 
+                axios.post('/api/clientPackage', {
+                    client_id: this.clientSelect,
+                    package_id: this.packageSelect,
+                }).then(response => {
+                    alert(response.data.msg);
+                    this.clientSelect = '';
+                    this.packageSelect = '';
+                    this.packageError = true;
+                    this.clientError = true;
+                });
+
+            },
             /*
                         CLEAR SELECT INPUT ERROR FIELD
             */
@@ -66,7 +75,6 @@
             /*
                                 FETCH DATA FOR INPUT BOX
             */
-
             axios.get('api/fetchClient', {}
             ).then(response => {
                 if (response.data.msg) {

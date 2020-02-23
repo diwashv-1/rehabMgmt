@@ -20,14 +20,13 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 
-Route::get('fetchClient', 'AjaxClientController@fetchClient');
-
 /*
                          CLIENTS
 */
 Route::get('fetchClient', 'Client\FetchClientController@fetchClientPackage')->name('fetchClient');
 
-
+Route::get('fetchClientDetail', 'AjaxClientController@fetchClient');
+Route::post('fetchClientInfo', 'Client\AjaxClientController@fetchClientInfo');
 Route::resource('clients', 'Client\ClientController', ['only' => ['store']]);
 
 
@@ -35,6 +34,15 @@ Route::resource('clients', 'Client\ClientController', ['only' => ['store']]);
 Route::get('packageDetail', 'Package\AjaxPackageController@getPackageDetail');
 
 Route::resource('PackageSetup', 'Package\PackageSetupController', ['only' => ['store']]);
+
+/*************        CLIENT PACKAGE         ***************/
+
+Route::resource('clientPackage', 'Client\ClientPackageController', ['only' => ['store']]);
+
+/******************      CLIENT EXPENSE DETAIL       ***************/
+Route::get('fetchClientNExpenseDetail', 'Expense\AjaxExpenseClientController@fetchClientNExpenseDetail');
+
+Route::resource('clientexpense', 'Expense\ClientExpenseController', ['only' => ['store']]);
 
 
 /***********        Expense Detail    ************/

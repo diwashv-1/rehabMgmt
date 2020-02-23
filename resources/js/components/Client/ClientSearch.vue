@@ -1,3 +1,4 @@
+
 <template>
     <div class="container">
         <div class="card">
@@ -31,10 +32,10 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr v-for="client in clients">
+                <tr v-for="client in clients" @click="fetchClientDetail(client.id)">
                     <td>{{ client.id }}</td>
                     <td>{{ client.client_name }}</td>
-                    <td>{{ client.guarantor_name1 }} </td>
+                    <td>{{ client.guarantor_name1 }}</td>
                     <td>{{ client.contact_number }}</td>
                 </tr>
 
@@ -60,11 +61,15 @@
                 {clients_name:"Akash"},
                 {clients_name:"Dewos"},
                 {clients_name:"Abishkar"}*/
+
+
+
+
             }
         },
         methods: {
             searchComponent: function () {
-                return axios.get('api/fetchClient', {}).then(response => {
+                return axios.get('api/fetchClientDetail', {}).then(response => {
                     if (this.client_search) {
                         this.clients = response.data.clients.filter(client => client.client_name.toLowerCase().match(this.client_search.toLowerCase()));
                         /*this.clients = response.data.clients.filter(client => client.guarantor_name1.toLowerCase().match(this.client_search.toLowerCase()));*/
@@ -73,9 +78,19 @@
                         this.clients = response.data.clients;
                     }
                 });
+            },
+
+            /*********************     FETCH CLIENT DETAILS AFTER CLICK ON TABLE      ***************/
+            fetchClientDetail: function (id) {
+                axios.post('api/fetchClientInfo', {
+                    id: id,
+                }).then(response => {
+                    alert(response.data.msg);
+                });
             }
 
         },
+
         created() {
             this.searchComponent();
         },
@@ -93,3 +108,4 @@
 <style scoped>
 
 </style>
+

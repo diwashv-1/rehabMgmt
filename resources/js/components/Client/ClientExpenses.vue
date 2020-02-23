@@ -1,10 +1,15 @@
 <template>
-    <div class="conatiner">
+
+
+    <!---------------     I COULD NOT UNDERSTAND YOUR COMPONENT FOR LOOP       --------------------->
+
+    <!--<div class="conatiner">
+
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">Add Client Expenses</div>
-                    <div class="card-body">
+                    <div class="card-body">&lt;!&ndash;
                         <form action="">
                             <div class="form-row">
                                 <div class="form-group col-md-3">
@@ -12,21 +17,21 @@
                                                         v-model="date"
                                                         type="date"
                                                         required="true"
-                                                        ref="date" />
+                                                        ref="date"/>
                                 </div>
                                 <div class="form-group col-md-3">
                                     <select-option-component label-name="Client"
                                                              v-model="client_id"
-                                                             :options="options"
+                                                             :options="clients"
                                                              ref="client_id"
-                                                              />
+                                    />
                                 </div>
                                 <div class="form-group col-md-3">
                                     <select-option-component label-name="Expenses On"
                                                              v-model="expense_detail_id"
                                                              :options="options"
                                                              ref="expense_detail_id"
-                                                              />
+                                    />
                                 </div>
                                 <div class="form-group col-md-3">
                                     <text-box-component labelName="Amount"
@@ -34,11 +39,11 @@
                                                         placeholder="Enter Paid Amount"
                                                         type="number"
                                                         required="true"
-                                                        ref="paid_amount" />
+                                                        ref="paid_amount"/>
                                 </div>
                             </div>
 
-                        </form>
+                        </form>&ndash;&gt;
                     </div>
                     <div class="form-group d-flex justify-content-end ">
                         <button class="btn btn-success mr-3" @click="submitBtn">Submit</button>
@@ -50,106 +55,153 @@
                     </p>
                 </div>
             </div>
-        </div>
-<!--        <div class="row">
-            <div class="col-md-12">
-                <div class="card">
-                    <div class="card-header">
-                        Add Client expenses
-                    </div>
-                    <div class="card-body">
-                        <form action="">
-                            <div class="form-row">
-                                <div class="form-group col-md-3">
-                                    <label for="date">Date</label>
-                                    <input type="date" name="date" class="form-control" id="date">
-                                    <p></p>
-                                </div>
+        </div>-->
 
-                                <div class="form-group col-md-3">
-                                    <label for="client_id">Client</label>
-                                    <select name="client_id" id="client_id" class="form-control">
-                                        <option value="">Client 1</option>
-                                        <option value="">Client 2</option>
-                                        <option value="">Client 3</option>
-                                    </select>
-                                    <p></p>
-                                </div>
+    <!-------------------    ALERT BOX LAI MILAU HAI          ------------------>
 
-                                <div class="form-group col-md-3">
-                                    <label for="expensesDetails">Expenses On</label>
-                                    <select name="expenses_details" id="expensesDetails" class="form-control">
-                                        <option value="">Expenses 1</option>
-                                        <option value="">Expenses 2</option>
-                                        <option value="">Expenses 3</option>
-                                    </select>
-                                    <p></p>
-                                </div>
 
-                                <div class="form-group col-md-3">
-                                    <label for="paid_amount">Amount</label>
-                                    <input type="number" class="form-control" name="paid_amount" id="paid_amount">
-                                    <p></p>
-                                </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="col-md-12" v-if="serverValidationError">
+                <div class="alert-danger alert-dismissible fade show" role="alert">
+                    <ul>
+                        <li class="text-danger" v-for="error in serverValidationError "> {{error}}</li>
+                    </ul>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    Add Client expenses
+                </div>
+                <div class="card-body">
+
+                    <form action="">
+                        <div class="form-row">
+                            <div class="form-group col-md-3">
+                                <label for="date">Date</label>
+                                <input type="date" v-model="date" class="form-control" id="date">
+                                <p></p>
                             </div>
 
-                                <div class="form-group d-flex justify-content-end">
-                                    <button class="btn btn-success">Submit</button>
-                                </div>
+                            <div class="form-group col-md-3">
+                                <label for="">Client</label>
+                                <select name="client_id" v-model="client_id" class="form-control">
+                                    <option disabled value="">Select Client</option>
+                                    <option :value="clients.id" v-for="clients in clients">{{clients.client_name}}
+                                    </option>
+                                </select>
+                                <p></p>
+                            </div>
 
+                            <div class="form-group col-md-3">
+                                <label for="expensesDetails">Expenses Detail</label>
+                                <select name="expenses_details" id="expensesDetails" v-model="expense_detail_id"
+                                        class="form-control">
+                                    <option disabled value="">Select Expenses</option>
+                                    <option :value="expenseDetails.id" v-for="expenseDetails in expenseDetails">
+                                        {{expenseDetails.type}}
+                                    </option>
+                                </select>
+                                <p></p>
+                            </div>
 
-                        </form>
-                    </div>
+                            <div class="form-group col-md-3">
+                                <label for="paid_amount">Paid Amount</label>
+                                <input type="number" class="form-control" v-model="paid_amount" id="paid_amount">
+                                <p></p>
+                            </div>
+                        </div>
+
+                        <div class="form-group d-flex justify-content-end">
+                            <button type="button" @click="submitClientExpenses" class="btn btn-success">Submit</button>
+                        </div>
+
+                    </form>
                 </div>
             </div>
         </div>
-        <div class="row">
-
-        </div>-->
-
     </div>
+
 </template>
 
 <script>
     import TextBoxComponent from "../Components/TextBoxComponent";
     import SelectOptionComponent from "../Components/SelectOptionComponent";
+
     export default {
         name: "ClientExpenses",
         components: {
-          TextBoxComponent,
-          SelectOptionComponent
+            TextBoxComponent,
+            SelectOptionComponent
         },
-        data(){
-            return{
+
+        mounted() {
+
+            axios.get('/api/fetchClientNExpenseDetail', {}).then(response => {
+                this.clients = response.data.clients;
+                this.expenseDetails = response.data.expense_details;
+            });
+        },
+
+        data() {
+            return {
                 date: '',
                 paid_amount: '',
-                options:'',
-                client_id:'',
+//                options: '',
+                client_id: '',
+                clients: [],
+                expenseDetails: [],
                 expense_detail_id: '',
-                formSubmitted: false
+                formSubmitted: false,
+                serverValidationError: [],
+
+
             }
         },
         methods: {
-            submitBtn(){
+            /*
+            submitBtn() {
                 this.formSubmitted = false;
                 this.$refs.date.validateForm();
-                if(this.$refs.date.errorMessage) {
+                if (this.$refs.date.errorMessage) {
                     return;
                 }
                 this.$refs.paid_amount.validateForm();
-                if(this.$refs.paid_amount.errorMessage) {
+                if (this.$refs.paid_amount.errorMessage) {
                     return;
                 }
                 this.$refs.client_id.validateForm();
-                if(this.$refs.client_id.errorMessage) {
+                if (this.$refs.client_id.errorMessage) {
                     return;
                 }
                 this.$refs.expense_detail_id.validateForm();
-                if(this.$refs.expense_detail_id.errorMessage) {
+                if (this.$refs.expense_detail_id.errorMessage) {
                     return;
                 }
                 this.formSubmitted = true
-            }
+            }*/
+            submitClientExpenses: function () {
+                this.serverValidationError = [];
+                axios.post('/api/clientexpense', {
+                    client_id: this.client_id,
+                    expense_detail_id: this.expense_detail_id,
+                    paid_amount: this.paid_amount,
+                    date: this.date,
+                }).then(response => {
+                    if (response.data.errors) {
+                        console.log(response.data.errors);
+                        this.serverValidationError = response.data.errors;
+                    }
+
+                    alert(response.data.msg);
+                });
+
+            },
+
+
         }
     }
 </script>

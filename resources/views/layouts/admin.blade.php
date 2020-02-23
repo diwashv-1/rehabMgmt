@@ -147,11 +147,15 @@
     <!-- /.navbar -->
 
     <!-- Main Sidebar Container -->
-    <aside class="main-sidebar elevation-4 text-white" style="background-color: #0a1011">
+    <aside class="main-sidebar elevation-4 sidebar-dark-primary" style="">
         <!-- Brand Logo -->
         <a href="index3.html" class="brand-link">
+
+           {{-- Logo
             <img src="" alt="" class="brand-image img-circle elevation-3"
                  style="opacity: .8">
+           --}}
+
             <span class="brand-text font-weight-bold">Sunaulo Bihani
             {{--  fetch from db later--}}
             </span>
@@ -160,9 +164,9 @@
         <div class="sidebar">
             <!-- Sidebar user panel (optional) -->
             <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-                <div class="image">
+              {{--  <div class="image">
                     <img src="" class="img-circle elevation-2" alt="User Image">
-                </div>
+                </div>--}}
                 <div class="info">
                     <a href="#" class="d-block">Soul Shadow</a>
                 </div>
@@ -204,6 +208,8 @@
                         </ul>--}}
                     </li>
                     {{--Client Manjuri Nama--}}
+
+
                     <li class="nav-item">
                         <a href="{{ route('clients.index')  }}" class="nav-link">
                             <i class="nav-icon fas fa-file-alt"></i>
@@ -223,7 +229,7 @@
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a href="{{ route('registerclient.index') }}" class="nav-link">
+                                <a href="{{ route('clientPackage.index') }}" class="nav-link">
                                     <i class="fas fa-plus-circle"></i>
                                     Register Clients
                                 </a>
@@ -235,7 +241,7 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="{{ route('clientexpenses.index') }}" class="nav-link">
+                                <a href="{{ route('clientexpense.index') }}" class="nav-link">
                                     <i class="fas fa-money-bill"></i>
                                     Add Client Expenses
                                 </a>
