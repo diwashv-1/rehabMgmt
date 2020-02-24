@@ -1,34 +1,38 @@
 <template>
-    <div class="conatiner">
-        <div class="row">
-            <div class="col-md-12">
+    <div class="container">
+        <div class="">
+            <div class="">
                 <div class="card">
                     <div class="card-header">Add Client Expenses</div>
                     <div class="card-body">
                         <form action="">
-                            <div class="form-row">
-                                <div class="form-group col-md-3">
+                            <div class="form-row justify-content-center">
+                                <div class="form-group col-md-10">
+                                    <label for="client_id">Client</label>
+                                    <select name="client_id" id="client_id" class="form-control">
+                                        <option value="">Client 1</option>
+                                        <option value="">Client 2</option>
+                                        <option value="">Client 3</option>
+                                    </select>
+                                    <p></p>
+                                </div>
+                                <div class="form-group col-md-10">
                                     <text-box-component labelName="Date"
                                                         v-model="date"
                                                         type="date"
                                                         required="true"
                                                         ref="date" />
                                 </div>
-                                <div class="form-group col-md-3">
-                                    <select-option-component label-name="Client"
-                                                             v-model="client_id"
-                                                             :options="options"
-                                                             ref="client_id"
-                                                              />
+                                <div class="form-group col-md-10">
+                                    <label for="expense_detail_id">Client</label>
+                                    <select name="expense_detail_id" id="expense_detail_id" class="form-control">
+                                        <option value="">Client 1</option>
+                                        <option value="">Client 2</option>
+                                        <option value="">Client 3</option>
+                                    </select>
+                                    <p></p>
                                 </div>
-                                <div class="form-group col-md-3">
-                                    <select-option-component label-name="Expenses On"
-                                                             v-model="expense_detail_id"
-                                                             :options="options"
-                                                             ref="expense_detail_id"
-                                                              />
-                                </div>
-                                <div class="form-group col-md-3">
+                                <div class="form-group col-md-10">
                                     <text-box-component labelName="Amount"
                                                         v-model="paid_amount"
                                                         placeholder="Enter Paid Amount"

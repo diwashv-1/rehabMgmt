@@ -1,45 +1,63 @@
 <template>
-    <div class="container">
-        <table class="table table-hover content-table">
-            <thead>
-            <tr>
-                <th>S.N.</th>
-                <th>Clien Name</th>
-                <th>Client Expenses</th>
-                <th>Payment Remaining</th>
-                <th>Guarantor Name</th>
-                <th>Contact Number</th>
-                <th>Action</th>
-            </tr>
-            </thead>
-            <tbody>
-            <!--class="active-row"-->
-            <tr>
-                <td>1</td>
-                <td>...</td>
-                <td>...</td>
-                <td>...</td>
-                <td>...</td>
-                <td>...</td>
-                <td>
-                    <button class="btn btn-warning btn-sm" data-toggle="modal" data-target="#editClientExpenses">Edit</button>
-                    <button class="btn btn-danger btn-sm">Remove</button>
-                </td>
-            </tr>
-            <tr class="active-row">
-                <td>2</td>
-                <td>...</td>
-                <td>...</td>
-                <td>...</td>
-                <td>...</td>
-                <td>...</td>
-                <td>
-                    <button class="btn btn-warning btn-sm" data-toggle="modal" data-target="#editClientExpenses">Edit</button>
-                    <button class="btn btn-danger btn-sm">Remove</button>
-                </td>
-            </tr>
-            </tbody>
-        </table>
+    <div class="">
+
+        <div class="expense_details bg-white">
+            <div class="row justify-content-center">
+                <div class="image" style="width: 93%; height: 100%;">
+                    <img src="" class="img-fluid"
+                         style="height: 200px; width: 100%; background-size: cover; overflow:hidden;"/>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 personal_det text-center">
+                    <h3>Name</h3>
+                    <h5>Address</h5>
+                    <h5>Contact Number</h5>
+                </div>
+                <div class="col-md-12 expense_det">
+                    <table class="table table-hover content-table responsive">
+                        <thead>
+                        <tr>
+                            <th>S.N.</th>
+                            <th>Date</th>
+                            <th>Expenses On</th>
+                            <th>Amount</th>
+                            <th>Action</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <!--class="active-row"-->
+                        <tr>
+                            <td>1</td>
+                            <td>...</td>
+                            <td>...</td>
+                            <td>...</td>
+                            <td>
+                                <button class="btn btn-warning btn-sm" data-toggle="modal"
+                                        data-target="#editClientExpenses">Edit
+                                </button>
+                                <button class="btn btn-danger btn-sm">Remove</button>
+                            </td>
+                        </tr>
+                        <tr class="active-row">
+                            <td>2</td>
+                            <td>...</td>
+                            <td>...</td>
+                            <td>...</td>
+                            <td>
+                                <button class="btn btn-warning btn-sm" data-toggle="modal"
+                                        data-target="#editClientExpenses">Edit
+                                </button>
+                                <button class="btn btn-danger btn-sm">Remove</button>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+
 
         <!--Modal PopUp-->
         <!-- Modal -->
@@ -55,17 +73,15 @@
                     </div>
                     <div class="modal-body">
                         <table class="table table-sm">
-                            <thead class="bg-info text-dark">
+                            <thead class="text-dark">
                             <tr>
-                                <th scope="col" width="20%">Client</th>
-                                <th scope="col" width="20%">Date</th>
+                                <th scope="col" width="40%">Date</th>
                                 <th scope="col" width="30%">Expenses On</th>
                                 <th scope="col" width="30%">Amount</th>
                             </tr>
                             </thead>
                             <tbody>
                             <tr>
-                                <td><input type="text" class="form-control" readonly/></td>
                                 <td><input type="date" class="form-control"/></td>
                                 <td>
                                     <select name="expenses_on" class="form-control">

@@ -73,7 +73,7 @@
                         </div>
                     </div>
                     <br/><br/>
-                    <div class="float-right">
+                    <div class="package_details float-right">
                         <div class="clientPackage">
                             <h3>Client Package <span> ---- </span></h3>
                         </div>
@@ -189,10 +189,13 @@
 </template>
 
 <style scoped>
+    .package_details {
+
+    }
     .detail_part {
         background: linear-gradient(
-            rgba(0, 0, 0, 0.65),
-            rgba(219, 0, 0, 0.45)
+            rgba(0, 0, 0, 0.6),
+            rgba(219, 9, 28, 0.4)
         ),
         url('https://upload.wikimedia.org/wikipedia/en/6/60/Recovery_Album_Cover.jpg');
         /*background-image: url('../../../../public/Images/rehav4.jpg');*/
