@@ -33,6 +33,7 @@ Vue.component('client-component', require('./components/ClientFormComponent.vue'
 Vue.component('client-entry-textarea-component', require('./components/Client/ClientEntryTextareaComponent.vue').default);
 Vue.component('client-entry-component', require('./components/Client/ClientEntryComponent.vue').default);
 Vue.component('client-entry-validate', require('./components/Client/ClientEntryValidate.vue').default);
+Vue.component('bill', require('./components/Client/Bill.vue').default);
 
 Vue.component('client-search', require('./components/Client/ClientSearch.vue').default);
 Vue.component('select-client-search', require('./components/Client/SelectClientSearch.vue').default);

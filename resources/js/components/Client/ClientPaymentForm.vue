@@ -58,48 +58,60 @@
         </div>-->
         <div class="row">
 
-            <div class="col-lg-5 col-md-5 col-sm-12 p-2 mt-2 detail_part" style="">
+            <div class="col-lg-5 col-md-5 col-sm-12 p-2 mt-2 detail_part" style="background-color: #ffffff; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);">
                 <div class="">
-                    <h3><u> Client payment Information </u></h3>
-                    <div class="row img-section mt-2">
+                    <h3><b> Client payment Information </b></h3>
+                    <div class="row img-section mt-4">
                         <div class="col-md-6" style="width: 100%; height: 100%;">
                             <img src="" class="img-fluid rounded float-left"
-                                 style="height: 200px; width: 90%; background-size: cover;"/>
+                                 style="height: 200px; width: 100%; background-size: cover;"/>
                         </div>
                         <div class="col-md-6">
-                            <h4>ClientName</h4>
-                            <p>ClientAddress</p>
-                            <p>Contact Number</p>
+                            <h3>ClientName</h3>
+                            <h5>ClientAddress</h5>
+                            <h5>Contact Number</h5>
+
+                            <div class="clientPackage p-2" style="border-top: 1px solid white;">
+                                <h5>Client Package: <span> ---- </span></h5>
+                                <h5>Total Amount: <span> ---- </span></h5>
+                                <h5>Paid Amount: <span> ---- </span></h5>
+                            </div>
                         </div>
                     </div>
-                    <br/><br/>
-                    <div class="package_details float-right">
-                        <div class="clientPackage">
-                            <h3>Client Package <span> ---- </span></h3>
-                        </div>
-                        <div class="amountP">
-                            <h3> Total Amount <span> ---- </span></h3>
-                            <h3> Total Paid Amount <span> ---- </span></h3>
-                        </div>
+                    <br/>
+                    <div class="package_details mt-2">
 
-                        <div class="">
-                            <h3>Latest Payment Details</h3>
-                            <li> 24 02 2020 <span> Amount </span></li>
-                            <li> 24 02 2020 <span> Amount </span></li>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h5>Latest Payment Details</h5>
+                                <li> 24 February 2020: <span> Amount </span></li>
+                                <li> 24 February 2020: <span> Amount </span></li>
+                                <li> 24 February 2020: <span> Amount </span></li>
+                                <li> 24 February 2020: <span> Amount </span></li>
+                            </div>
+                            <div class="col-md-6">
+                                <h5>Latest Expenditure Summary</h5>
+
+                                    <li>Extra Food: <span>2020 February 25</span></li>
+                                    <li>Dashain: <span>2020 February 25</span></li>
+                                    <li>Medical: <span>2020 February 25</span></li>
+                                    <li>Transport: <span>2020 February 25</span></li>
+
+                            </div>
                         </div>
                     </div>
 
                 </div>
 
             </div>
-            <div class="col-lg-7 col-md-7 col-sm-12 p-2 mt-2 mx-auto" style="background-color: #ffffff">
+            <div class="col-lg-7 col-md-7 col-sm-12 p-2 mt-2 mx-auto" style="background-color: #ffffff; box-shadow: 0 15px 15px rgba(0, 0, 0, 0.5);">
                 <div class="">
-                    <h2><u>Payment Method</u></h2>
-                    <div class="row">
-                        <div class="col-6">
+                    <h2><b>Payment Method</b></h2>
+                    <div class="row mt-3 mb-3">
+                        <div class="col-6 text-center">
                             <i class="fas fa-cash-register fa-3x"></i>
                         </div>
-                        <div class="col-6">
+                        <div class="col-6 text-center">
                             <i class="fas fa-piggy-bank fa-3x"></i>
                         </div>
                     </div>
@@ -152,12 +164,12 @@
                             </div>
 
                             <div class="form-group col-md-10 col-sm-12">
-                                    <client-entry-validate labelName="Bank Name"
-                                                           v-model="bank_name"
-                                                           type="text"
-                                                           placeholder=""
-                                                           required="true"
-                                                           ref="bank_name"/>
+                                <client-entry-validate labelName="Bank Name"
+                                                       v-model="bank_name"
+                                                       type="text"
+                                                       placeholder=""
+                                                       required="true"
+                                                       ref="bank_name"/>
                             </div>
 
                         </div>
@@ -179,6 +191,51 @@
                         </div>
 
                         <button type="button" class="btn btn-success" @click="handleSubmit">Submit</button>
+                        <!-- Print trigger modal -->
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#billmodal">
+                            Print Bill
+                        </button>
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="billmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
+                             aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-body">
+                                        <div class="wrapper" style="border: 1px solid #282828; padding: 20px;">
+                                            <div class="heading-part text-center">
+                                                <h2>सुनौलो बिहानी</h2>
+                                                <h4>भरतपुर-११, चितवन नेपाल</h4>
+                                            </div>
+                                            <div class="body-part">
+                                                <div class="row">
+                                                    <div class="col-md-12 text-right">
+                                                        <p>दर्ता नं.: <span>.............</span></p>
+                                                    </div>
+                                                    <div class="col-md-12 text-right">मिति: <span>.............</span></div>
+                                                    <div class="col-md-12 mt-1">बिल नं.: <span>.............</span></div>
+                                                    <div class="col-md-12 mt-1">दिनेको नाम: <span>.............</span></div>
+                                                    <div class="col-md-12 mt-1">ठेगाना: <span>.............</span></div>
+                                                    <div class="col-md-12 mt-1">रकम: <span>.............</span></div>
+                                                    <div class="col-md-12 mt-1">बिरामीको नाम: <span>.............</span></div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-4 mt-5" style="border-top: 1px solid black">
+                                                        रकम लिनेको नाम <br/>
+                                                        ...........
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                        <button type="button" class="btn btn-primary">Print</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--Modal Ends-->
                     </div>
                 </div>
             </div>
@@ -192,27 +249,17 @@
     .package_details {
 
     }
+
     .detail_part {
-        background: linear-gradient(
-            rgba(0, 0, 0, 0.6),
-            rgba(219, 9, 28, 0.4)
-        ),
-        url('https://upload.wikimedia.org/wikipedia/en/6/60/Recovery_Album_Cover.jpg');
+        /*background: linear-gradient(
+            rgba(0, 0, 0, 0.8),
+            rgba(219, 9, 28, 0.7)
+        );*/
         /*background-image: url('../../../../public/Images/rehav4.jpg');*/
-        color: white;
+        /*color: white;
         background-size: cover;
 
-        background-repeat: no-repeat;
-    }
-
-    .clientPackage span {
-        border-left: 2px solid white;
-        padding-left: 10px;
-    }
-
-    .amountP span {
-        border-left: 2px solid white;
-        padding-left: 10px;
+        background-repeat: no-repeat;*/
     }
 </style>
 
