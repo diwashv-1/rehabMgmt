@@ -17,13 +17,14 @@
             flex-direction: column;
             justify-content: center;
             color: #fff;
+
             background:
                 linear-gradient(
                     rgba(0, 0, 0, 0.25),
                     rgba(219, 0, 0, 0.25)
                 ),
-                url('https://m.media-amazon.com/images/M/MV5BZTA3ZjIzNjMtMGJiZC00MGNiLThiYzUtNjQ4ODZmZjc2NzA5XkEyXkFqcGdeQXVyNTc0ODgzNDQ@._V1_.jpg');
-            /*background-image: url('../../../../public/Images/rehav4.jpg');*/
+                          url('Images/rehav5.jpg');
+
             background-size: cover;
 
             background-repeat: no-repeat;
