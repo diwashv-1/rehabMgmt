@@ -1,4 +1,5 @@
 <template>
+
     <div class="container">
         <!--<div class="row">
             <div class="col-md-12">
@@ -57,40 +58,43 @@
         </div>-->
         <div class="row">
 
-            <div class="col-lg-6 col-md-6 col-sm-12 p-5 mt-5" style="background-color: #202020; color: white">
+            <div class="col-lg-5 col-md-5 col-sm-12 p-2 mt-2 detail_part" style="">
                 <div class="">
                     <h3><u> Client payment Information </u></h3>
-                    <img src="" class="img-fluid rounded float-left" />
-
-                    <h4>ClientName</h4>
-                    <p>ClientAddress</p>
+                    <div class="row img-section mt-2">
+                        <div class="col-md-6" style="width: 100%; height: 100%;">
+                            <img src="" class="img-fluid rounded float-left"
+                                 style="height: 200px; width: 90%; background-size: cover;"/>
+                        </div>
+                        <div class="col-md-6">
+                            <h4>ClientName</h4>
+                            <p>ClientAddress</p>
+                            <p>Contact Number</p>
+                        </div>
+                    </div>
                     <br/><br/>
-                    <b>Expenditures On</b>
-                    <ul>
-                        <li>Electronics<span>2017 February 10, at 10:30 PM</span></li>
-                        <li>---</li>
-                    </ul>
-                    <ul>
-                        <li>Extra Food<span>2017 February 25, at 1:30 PM</span></li>
-                        <li>---</li>
-                    </ul>
-                    <ul>
-                        <li>Dashain Kharcha<span>2017 March 17, at 08:30 PM</span><span>2017 March 19, at 08:30 PM</span></li>
-                        <li>---</li>
-                    </ul>
+                    <div class="float-right">
+                        <div class="clientPackage">
+                            <h3>Client Package <span> ---- </span></h3>
+                        </div>
+                        <div class="amountP">
+                            <h3> Total Amount <span> ---- </span></h3>
+                            <h3> Total Paid Amount <span> ---- </span></h3>
+                        </div>
 
-                    <div class="">
-                        <h3>Total Amount</h3>
-                        <h4>Rupee: ------</h4>
-                        <p>Paid Amount: ----</p>
+                        <div class="">
+                            <h3>Latest Payment Details</h3>
+                            <li> 24 02 2020 <span> Amount </span></li>
+                            <li> 24 02 2020 <span> Amount </span></li>
+                        </div>
                     </div>
 
                 </div>
 
             </div>
-            <div class="col-lg-6 col-md-6 col-sm-12 p-5 mt-5 mx-auto" style="background-color: #ffffff">
+            <div class="col-lg-7 col-md-7 col-sm-12 p-2 mt-2 mx-auto" style="background-color: #ffffff">
                 <div class="">
-                    <h2><u>Payment Method</u> </h2>
+                    <h2><u>Payment Method</u></h2>
                     <div class="row">
                         <div class="col-6">
                             <i class="fas fa-cash-register fa-3x"></i>
@@ -131,20 +135,9 @@
                         <div class="form-row">
                             <div class="custom-control custom-checkbox mr-sm-2 ml-5">
                                 <input type="checkbox" class="custom-control-input" id="customControlAutosizing"
-                                       v-model="cheque_payment" v-on:click="cash_payment = !cash_payment">
+                                       v-model="cheque_payment">
                                 <label class="custom-control-label" for="customControlAutosizing">Tick for Cheque
                                     Payment</label>
-                            </div>
-                        </div>
-                        <!--Cash payment-->
-                        <div v-if="cash_payment">
-                            <div class="form-group col-md-10">
-                                <client-entry-validate labelName="Cash Amount"
-                                                       v-model="amount"
-                                                       type="number"
-                                                       placeholder=""
-                                                       required="true"
-                                                       ref="amount"/>
                             </div>
                         </div>
                         <!--Cheque Payment-->
@@ -157,24 +150,26 @@
                                                        required="true"
                                                        ref="amount"/>
                             </div>
-                            <div class="row">
-                                <div class="form-group col-md-6 col-sm-12">
+
+                            <div class="form-group col-md-10 col-sm-12">
                                     <client-entry-validate labelName="Bank Name"
                                                            v-model="bank_name"
                                                            type="text"
                                                            placeholder=""
                                                            required="true"
                                                            ref="bank_name"/>
-                                </div>
-                                <div class="form-group col-md-6 col-sm-12">
-                                    <client-entry-validate labelName="Cheque Amount"
-                                                           v-model="cheque_amount"
-                                                           type="number"
-                                                           placeholder=""
-                                                           required="true"
-                                                           ref="cheque_amount"/>
-                                </div>
                             </div>
+
+                        </div>
+                        <!--Cash payment-->
+
+                        <div class="form-group col-md-10 col-sm-12" v-if="cash_payment">
+                            <client-entry-validate labelName="Amount"
+                                                   v-model="amount"
+                                                   type="number"
+                                                   placeholder=""
+                                                   required="true"
+                                                   ref="amount"/>
                         </div>
                         <div class="form-group col-md-10">
                             <label for="narration">Narration</label>
@@ -193,6 +188,31 @@
     </div>
 </template>
 
+<style scoped>
+    .detail_part {
+        background: linear-gradient(
+            rgba(0, 0, 0, 0.65),
+            rgba(219, 0, 0, 0.45)
+        ),
+        url('https://upload.wikimedia.org/wikipedia/en/6/60/Recovery_Album_Cover.jpg');
+        /*background-image: url('../../../../public/Images/rehav4.jpg');*/
+        color: white;
+        background-size: cover;
+
+        background-repeat: no-repeat;
+    }
+
+    .clientPackage span {
+        border-left: 2px solid white;
+        padding-left: 10px;
+    }
+
+    .amountP span {
+        border-left: 2px solid white;
+        padding-left: 10px;
+    }
+</style>
+
 <script>
     import ClientEntryValidate from "./ClientEntryValidate";
 
@@ -210,7 +230,6 @@
                 amount: '',
                 cheque_no: '',
                 bank_name: '',
-                cheque_amount: '',
                 cash_payment: true,
                 cheque_payment: false
 
@@ -244,17 +263,8 @@
                     this.$refs.bank_name.focus();
                     return;
                 }
-                this.$refs.cheque_amount.validateForm();
-                if (this.$refs.cheque_amount.errorMessage) {
-                    this.$refs.cheque_amount.focus();
-                    return;
-                }
                 this.formSubmitted = true;
             }
         }
     }
 </script>
-
-<style scoped>
-
-</style>
